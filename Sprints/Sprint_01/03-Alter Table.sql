@@ -10,10 +10,12 @@ ALTER TABLE infodb.geo_countries ADD FOREIGN KEY (capital) REFERENCES infodb.geo
 -- alter table infodb.geo_states
 ALTER TABLE infodb.geo_states ADD FOREIGN KEY (country_id) REFERENCES infodb.geo_countries(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_states ADD FOREIGN KEY (capital) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+ALTER TABLE infodb.geo_states ADD FOREIGN KEY (largest_city) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 
 -- alter table infodb.geo_union_territories
 ALTER TABLE infodb.geo_union_territories ADD FOREIGN KEY (country_id) REFERENCES infodb.geo_countries(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_union_territories ADD FOREIGN KEY (capital) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+ALTER TABLE infodb.geo_union_territories ADD FOREIGN KEY (largest_city) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 
 -- alter table infodb.geo_districts
 ALTER TABLE infodb.geo_districts ADD FOREIGN KEY (state_id) REFERENCES infodb.geo_states(id) ON DELETE SET NULL;
