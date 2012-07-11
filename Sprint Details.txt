@@ -1,0 +1,7 @@
+Sprint 1 (10-July-2012 to 31-July-2012)
+
+	1. Database design to collect data
+	2. Generate admin tool entry this info ( includes data grid ) - code generator does
+	3. Data collection on country/state/city/company specific
+	4. Leave/Holiday info page
+	5. Allow social user to enter their copmanies holiday info - Request page
