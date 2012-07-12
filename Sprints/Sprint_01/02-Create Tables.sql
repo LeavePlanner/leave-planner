@@ -127,10 +127,10 @@ CREATE TABLE IF NOT EXISTS infodb.geo_city_types (
 CREATE TABLE IF NOT EXISTS infodb.geo_cities (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL,
-  district_id integer NOT NULL DEFAULT 0,
-  state_id integer NOT NULL DEFAULT 0,
-  union_territory_id integer NOT NULL DEFAULT 0,
-  city_type integer NOT NULL DEFAULT 0,
+  district_id integer,
+  state_id integer,
+  union_territory_id integer,
+  city_type integer,
   pupulation integer NOT NULL DEFAULT 0,
   coordinates char(255),
   region char(255),
@@ -233,7 +233,7 @@ CREATE TABLE IF NOT EXISTS infodb.org_organizations (
   traded_as varchar(2500),
   industry varchar(2500),
   founders varchar(2500),
-  headquarters integer,
+  headquarter integer,
   number_of_locations integer,
   area_served varchar(2500),
   presence_in varchar(2500),
@@ -286,7 +286,7 @@ CREATE TABLE IF NOT EXISTS infodb.leave_days (
   alias char(255) DEFAULT '',
   leave_date date,
   since_date date,
-  leave_type integer NOT NULL DEFAULT 0,
+  leave_type integer,
   history varchar(2000) NOT NULL,
   description varchar(5000),
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -299,8 +299,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_days (
 -- creat table infodb.leave_in_countries
 CREATE TABLE IF NOT EXISTS infodb.leave_in_countries (
   id integer NOT NULL AUTO_INCREMENT,
-  leave_id integer NOT NULL DEFAULT 0,
-  country_id integer NOT NULL DEFAULT 0,
+  leave_id integer,
+  country_id integer,
   leave_date date NOT NULL,
   year int(4) NOT NULL,
   week_day char(10),
@@ -315,8 +315,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_in_countries (
 -- creat table infodb.leave_in_states
 CREATE TABLE IF NOT EXISTS infodb.leave_in_states (
   id integer NOT NULL AUTO_INCREMENT,
-  leave_id integer NOT NULL DEFAULT 0,
-  state_id integer NOT NULL DEFAULT 0,
+  leave_id integer,
+  state_id integer,
   leave_date date NOT NULL,
   year int(4) NOT NULL,
   week_day char(10),
@@ -331,8 +331,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_in_states (
 -- creat table infodb.leave_in_union_territories
 CREATE TABLE IF NOT EXISTS infodb.leave_in_union_territories (
   id integer NOT NULL AUTO_INCREMENT,
-  leave_id integer NOT NULL DEFAULT 0,
-  union_territory_id integer NOT NULL DEFAULT 0,
+  leave_id integer,
+  union_territory_id integer,
   leave_date date NOT NULL,
   year int(4) NOT NULL,
   week_day char(10),
@@ -347,8 +347,25 @@ CREATE TABLE IF NOT EXISTS infodb.leave_in_union_territories (
 -- creat table infodb.leave_in_cities
 CREATE TABLE IF NOT EXISTS infodb.leave_in_cities (
   id integer NOT NULL AUTO_INCREMENT,
-  leave_id integer NOT NULL DEFAULT 0,
-  city_id integer NOT NULL DEFAULT 0,
+  leave_id integer,
+  city_id integer,
+  leave_date date NOT NULL,
+  year int(4) NOT NULL,
+  week_day char(10),
+  description varchar(5000),
+  create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  update_date TIMESTAMP,
+  deleted TINYINT(1) NOT NULL DEFAULT '0',
+  active TINYINT(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- creat table infodb.leave_in_organizations
+CREATE TABLE IF NOT EXISTS infodb.leave_in_organizations (
+  id integer NOT NULL AUTO_INCREMENT,
+  leave_id integer,
+  org_id integer,
+  city_id integer,
   leave_date date NOT NULL,
   year int(4) NOT NULL,
   week_day char(10),

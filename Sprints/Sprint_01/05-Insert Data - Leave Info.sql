@@ -12,7 +12,7 @@ INSERT INTO infodb.leave_types(type,description)VALUES('School holidays','');
 INSERT INTO infodb.leave_types(type,description)VALUES('Election holidays','');
 
 -- insert into infodb.leave_days
--- indian generic_holidays
+-- indian infodb.leave_days
 INSERT INTO infodb.leave_days(name,description,leave_type)VALUES('Republic Day','The Republic Day of India is a national holiday of India to mark the adoption of the Constitution of India and the transition of India from a British Dominion to a republic on January 26\, 1950. It is one of the three national holidays in India.',6);
 INSERT INTO infodb.leave_days(name,description,leave_type)VALUES('Maha Shivratri','Maha Shivratri\, the night of the worship of Lord Shiva\, occurs on the 14th night of the new moon during the dark half of the month of Phalguna. It falls on a moonless February night\, when Hindus offer special prayer to the lord of destruction.',6);
 INSERT INTO infodb.leave_days(name,description,leave_type)VALUES('Holi','Holi\, also known as Dhuli Vandana in Sanskrit\,also Dhulheti\, Dhulandi or Dhulendi\, is celebrated by people throwing coloured powder and coloured water at each other.',6);
@@ -71,7 +71,11 @@ INSERT INTO infodb.leave_days(name,alias) VALUES('Padwa Puja & Govardhan Puja','
 INSERT INTO infodb.leave_days(name,alias) VALUES('Milad-Un-Nabi','Id-E-Milad | Birthday of Prophet Mohammad');
 INSERT INTO infodb.leave_days(name,alias) VALUES('Bakri Id','Idul Zuha');
 INSERT INTO infodb.leave_days(name) VALUES('Muharram');
-
+INSERT INTO infodb.leave_days(name) VALUES('Maharashtra Day');
+INSERT INTO infodb.leave_days(name) VALUES('Kannada Rajostava');
+INSERT INTO infodb.leave_days(name) VALUES('Thiruvalluvar Day');
+INSERT INTO infodb.leave_days(name) VALUES('Uzhavar Thirunal');
+INSERT INTO infodb.leave_days(name) VALUES('Vinayakar Chaturthi');
 
 
 -- insert into infodb.leave_in_countries

@@ -31,19 +31,19 @@ ALTER TABLE infodb.geo_country_capitals ADD FOREIGN KEY (capital_type) REFERENCE
 -- alter table infodb.geo_state_capitals
 ALTER TABLE infodb.geo_state_capitals ADD FOREIGN KEY (state_id) REFERENCES infodb.geo_states(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_state_capitals ADD FOREIGN KEY (city_id) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
-ALTER TABLE infodb.geo_state_capitals ADD FOREIGN KEY (capital_type) REFERENCES infodb.geo_capital_types(id) ON DELETE SET NULL
+ALTER TABLE infodb.geo_state_capitals ADD FOREIGN KEY (capital_type) REFERENCES infodb.geo_capital_types(id) ON DELETE SET NULL;
 
 -- alter table infodb.geo_district_capitals
 ALTER TABLE infodb.geo_district_capitals ADD FOREIGN KEY (district_id) REFERENCES infodb.geo_districts(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_district_capitals ADD FOREIGN KEY (city_id) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
-ALTER TABLE infodb.geo_district_capitals ADD FOREIGN KEY (capital_type) REFERENCES infodb.geo_capital_types(id) ON DELETE SET NULL
+ALTER TABLE infodb.geo_district_capitals ADD FOREIGN KEY (capital_type) REFERENCES infodb.geo_capital_types(id) ON DELETE SET NULL;
 
 -- ==========================================
 -- 	 ALTER ORGANIZATION INFO TABLES
 -- ==========================================
 -- alter table infodb.org_types
 ALTER TABLE infodb.org_organizations ADD FOREIGN KEY (org_type) REFERENCES infodb.org_types(id) ON DELETE SET NULL;
-ALTER TABLE infodb.org_organizations ADD FOREIGN KEY (headquarters) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+ALTER TABLE infodb.org_organizations ADD FOREIGN KEY (headquarter) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 
 -- alter table infodb.org_presence_in_cities
 ALTER TABLE infodb.org_presence_in_cities ADD FOREIGN KEY (organization_id) REFERENCES infodb.org_organizations(id) ON DELETE SET NULL;
@@ -70,6 +70,11 @@ ALTER TABLE infodb.leave_in_union_territories ADD FOREIGN KEY (union_territory_i
 -- alter table infodb.leave_in_cities 
 ALTER TABLE infodb.leave_in_cities ADD FOREIGN KEY (leave_id) REFERENCES infodb.leave_days(id) ON DELETE SET NULL;
 ALTER TABLE infodb.leave_in_cities ADD FOREIGN KEY (city_id) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+
+-- alter table infodb.leave_in_organizations 
+ALTER TABLE infodb.leave_in_organizations ADD FOREIGN KEY (leave_id) REFERENCES infodb.leave_days(id) ON DELETE SET NULL;
+ALTER TABLE infodb.leave_in_organizations ADD FOREIGN KEY (city_id) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+ALTER TABLE infodb.leave_in_organizations ADD FOREIGN KEY (org_id) REFERENCES org_organizations(id) ON DELETE SET NULL;
 
 -- alter table infodb.leave_calendars
 ALTER TABLE infodb.leave_calendars ADD FOREIGN KEY (leave_type) REFERENCES infodb.leave_types(id) ON DELETE SET NULL;
