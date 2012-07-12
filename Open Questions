@@ -1,0 +1,1 @@
+1. After creating new tables. Found an issue in storing state capitals. For now we have mapped city inside state table as capital, but in case of some state they share two capitals such as J&K. I think we might need to go back to have old way of storing cpitals.

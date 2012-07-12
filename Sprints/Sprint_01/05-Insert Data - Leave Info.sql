@@ -95,3 +95,7 @@ INSERT INTO infodb.leave_in_countries(leave_id,country_id,leave_date,year,week_d
 INSERT INTO infodb.leave_in_countries(leave_id,country_id,leave_date,year,week_day) VALUES (15,100,'2012-11-28',2012,'Wednesday');  -- Guru Nanak Jayanthi
 INSERT INTO infodb.leave_in_countries(leave_id,country_id,leave_date,year,week_day) VALUES (16,100,'2012-12-25',2012,'Tuesday');  -- Christmas
 
+
+-- commit changes
+
+commit;

@@ -2086,3 +2086,8 @@ INSERT INTO infodb.geo_cities(name,union_territory_id,city_type,pupulation)VALUE
 INSERT INTO infodb.geo_cities(name,union_territory_id,city_type,pupulation)VALUES('Silvassa',3,3,21893);
 INSERT INTO infodb.geo_cities(name,union_territory_id,city_type,pupulation)VALUES('Yanam',7,8,31394);
 
+
+
+-- commit changes
+
+commit;

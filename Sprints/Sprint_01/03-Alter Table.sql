@@ -5,29 +5,49 @@
 
 -- alter table infodb.geo_countries
 ALTER TABLE infodb.geo_countries ADD FOREIGN KEY (continent_id) REFERENCES infodb.geo_continents(id) ON DELETE SET NULL;
-ALTER TABLE infodb.geo_countries ADD FOREIGN KEY (capital) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 
 -- alter table infodb.geo_states
 ALTER TABLE infodb.geo_states ADD FOREIGN KEY (country_id) REFERENCES infodb.geo_countries(id) ON DELETE SET NULL;
-ALTER TABLE infodb.geo_states ADD FOREIGN KEY (capital) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_states ADD FOREIGN KEY (largest_city) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 
 -- alter table infodb.geo_union_territories
 ALTER TABLE infodb.geo_union_territories ADD FOREIGN KEY (country_id) REFERENCES infodb.geo_countries(id) ON DELETE SET NULL;
-ALTER TABLE infodb.geo_union_territories ADD FOREIGN KEY (capital) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_union_territories ADD FOREIGN KEY (largest_city) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 
 -- alter table infodb.geo_districts
 ALTER TABLE infodb.geo_districts ADD FOREIGN KEY (state_id) REFERENCES infodb.geo_states(id) ON DELETE SET NULL;
-ALTER TABLE infodb.geo_districts ADD FOREIGN KEY (capital) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 
 -- alter table infodb.geo_cities
-
 ALTER TABLE infodb.geo_cities ADD FOREIGN KEY (district_id) REFERENCES infodb.geo_districts(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_cities ADD FOREIGN KEY (state_id) REFERENCES infodb.geo_states(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_cities ADD FOREIGN KEY (union_territory_id) REFERENCES infodb.geo_union_territories(id) ON DELETE SET NULL;
 ALTER TABLE infodb.geo_cities ADD FOREIGN KEY (city_type) REFERENCES infodb.geo_city_types(id) ON DELETE SET NULL;
 
+-- alter table infodb.geo_country_capitals
+ALTER TABLE infodb.geo_country_capitals ADD FOREIGN KEY (country_id) REFERENCES infodb.geo_countries(id) ON DELETE SET NULL;
+ALTER TABLE infodb.geo_country_capitals ADD FOREIGN KEY (city_id) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+ALTER TABLE infodb.geo_country_capitals ADD FOREIGN KEY (capital_type) REFERENCES infodb.geo_capital_types(id) ON DELETE SET NULL;
+
+-- alter table infodb.geo_state_capitals
+ALTER TABLE infodb.geo_state_capitals ADD FOREIGN KEY (state_id) REFERENCES infodb.geo_states(id) ON DELETE SET NULL;
+ALTER TABLE infodb.geo_state_capitals ADD FOREIGN KEY (city_id) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+ALTER TABLE infodb.geo_state_capitals ADD FOREIGN KEY (capital_type) REFERENCES infodb.geo_capital_types(id) ON DELETE SET NULL
+
+-- alter table infodb.geo_district_capitals
+ALTER TABLE infodb.geo_district_capitals ADD FOREIGN KEY (district_id) REFERENCES infodb.geo_districts(id) ON DELETE SET NULL;
+ALTER TABLE infodb.geo_district_capitals ADD FOREIGN KEY (city_id) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+ALTER TABLE infodb.geo_district_capitals ADD FOREIGN KEY (capital_type) REFERENCES infodb.geo_capital_types(id) ON DELETE SET NULL
+
+-- ==========================================
+-- 	 ALTER ORGANIZATION INFO TABLES
+-- ==========================================
+-- alter table infodb.org_types
+ALTER TABLE infodb.org_organizations ADD FOREIGN KEY (org_type) REFERENCES infodb.org_types(id) ON DELETE SET NULL;
+ALTER TABLE infodb.org_organizations ADD FOREIGN KEY (headquarters) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
+
+-- alter table infodb.org_presence_in_cities
+ALTER TABLE infodb.org_presence_in_cities ADD FOREIGN KEY (organization_id) REFERENCES infodb.org_organizations(id) ON DELETE SET NULL;
+ALTER TABLE infodb.org_presence_in_cities ADD FOREIGN KEY (city_id) REFERENCES infodb.geo_cities(id) ON DELETE SET NULL;
 -- ==========================================
 -- 	 ALTER LEAVE INFO TABLES
 -- ==========================================

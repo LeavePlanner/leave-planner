@@ -24,6 +24,30 @@ DROP TABLE IF EXISTS infodb.geo_city_types;
 -- drop table geo_cities
 DROP TABLE IF EXISTS infodb.geo_cities;
 
+-- drop table infodb.geo_capital_types 
+DROP TABLE IF EXISTS infodb.geo_capital_types;
+
+-- drop table infodb.geo_country_capitals
+DROP TABLE IF EXISTS infodb.geo_country_capitals;
+
+-- drop table infodb.geo_state_capitals
+DROP TABLE IF EXISTS infodb.geo_state_capitals;
+
+-- drop table infodb.geo_district_capitals
+DROP TABLE IF EXISTS infodb.geo_district_capitals;
+
+-- ==========================================
+-- 	 DELETE ORGANIZATION INFO TABLES
+-- ==========================================
+
+-- drop table infodb.org_types
+DROP TABLE IF EXISTS infodb.org_types;
+
+-- drop table infodb.org_organizations
+DROP TABLE IF EXISTS infodb.org_organizations;
+
+-- drop table infodb.org_presence_in_cities
+DROP TABLE IF EXISTS infodb.org_presence_in_cities;
 
 -- ==========================================
 -- 	 DELETE LEAVE INFO TABLES
