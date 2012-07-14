@@ -1,0 +1,17 @@
+mvn clean install
+
+mvn org.mortbay.jetty:maven-jetty-plugin:run
+mvn jetty:run
+
+http://localhost:8080/RESTfulExample/rest/hello/leaveplanner
+
+<pluginGroups>
+    <pluginGroup>org.mortbay.jetty</pluginGroup>
+</pluginGroups>
+
+
+
+
+
+
+http://www.mkyong.com/webservices/jax-rs/jersey-hello-world-example/
