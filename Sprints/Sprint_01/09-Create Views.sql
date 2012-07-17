@@ -12,3 +12,5 @@ WHERE
     lo.country_id = c.id AND lo.leave_id = l.id
 ORDER BY lo.country_id ASC, lo.leave_date ASC
 );
+
+

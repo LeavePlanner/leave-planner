@@ -31,3 +31,16 @@ where
     lo.city_id = c.id and lo.leave_id = l.id and lo.org_id = o.id
 order by lo.city_id asc, lo.leave_date asc;
 
+-- fetch the leaves in india -- country public leaves
+SELECT 
+    c.name as 'Country',
+    l.name as 'Occassion',
+    lc.leave_date as 'Date',
+    lc.week_day as 'Day'
+FROM
+    infodb.leave_in_countries lc,
+    infodb.geo_countries c,
+    infodb.leave_days l
+where
+    lc.country_id = c.id and lc.leave_id = l.id and lc.country_id=100
+order by lc.leave_date asc;
