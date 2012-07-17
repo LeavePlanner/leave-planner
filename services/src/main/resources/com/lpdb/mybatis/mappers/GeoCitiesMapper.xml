@@ -18,8 +18,6 @@
     <result column="elevation" property="elevation" jdbcType="CHAR" />
     <result column="website" property="website" jdbcType="CHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
-    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
-    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
     <result column="deleted" property="deleted" jdbcType="BIT" />
     <result column="active" property="active" jdbcType="BIT" />
   </resultMap>
