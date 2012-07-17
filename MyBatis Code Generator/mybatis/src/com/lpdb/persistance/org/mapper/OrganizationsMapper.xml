@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lpdb.persistance.org.mapper.OrganizationsMapper" >
+  <resultMap id="BaseResultMap" type="com.lpdb.persistance.org.entity.Organizations" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="CHAR" />
+    <result column="org_type" property="orgType" jdbcType="INTEGER" />
+    <result column="employees" property="employees" jdbcType="INTEGER" />
+    <result column="traded_as" property="tradedAs" jdbcType="VARCHAR" />
+    <result column="industry" property="industry" jdbcType="VARCHAR" />
+    <result column="founders" property="founders" jdbcType="VARCHAR" />
+    <result column="headquarter" property="headquarter" jdbcType="INTEGER" />
+    <result column="number_of_locations" property="numberOfLocations" jdbcType="INTEGER" />
+    <result column="area_served" property="areaServed" jdbcType="VARCHAR" />
+    <result column="presence_in" property="presenceIn" jdbcType="VARCHAR" />
+    <result column="lp_email_id" property="lpEmailId" jdbcType="CHAR" />
+    <result column="website" property="website" jdbcType="CHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="active" property="active" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, org_type, employees, traded_as, industry, founders, headquarter, number_of_locations, 
+    area_served, presence_in, lp_email_id, website, description, create_date, update_date, 
+    deleted, active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from organizations
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from organizations
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lpdb.persistance.org.entity.Organizations" >
+    insert into organizations (id, name, org_type, 
+      employees, traded_as, industry, 
+      founders, headquarter, number_of_locations, 
+      area_served, presence_in, lp_email_id, 
+      website, description, create_date, 
+      update_date, deleted, active
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{orgType,jdbcType=INTEGER}, 
+      #{employees,jdbcType=INTEGER}, #{tradedAs,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, 
+      #{founders,jdbcType=VARCHAR}, #{headquarter,jdbcType=INTEGER}, #{numberOfLocations,jdbcType=INTEGER}, 
+      #{areaServed,jdbcType=VARCHAR}, #{presenceIn,jdbcType=VARCHAR}, #{lpEmailId,jdbcType=CHAR}, 
+      #{website,jdbcType=CHAR}, #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lpdb.persistance.org.entity.Organizations" >
+    insert into organizations
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="orgType != null" >
+        org_type,
+      </if>
+      <if test="employees != null" >
+        employees,
+      </if>
+      <if test="tradedAs != null" >
+        traded_as,
+      </if>
+      <if test="industry != null" >
+        industry,
+      </if>
+      <if test="founders != null" >
+        founders,
+      </if>
+      <if test="headquarter != null" >
+        headquarter,
+      </if>
+      <if test="numberOfLocations != null" >
+        number_of_locations,
+      </if>
+      <if test="areaServed != null" >
+        area_served,
+      </if>
+      <if test="presenceIn != null" >
+        presence_in,
+      </if>
+      <if test="lpEmailId != null" >
+        lp_email_id,
+      </if>
+      <if test="website != null" >
+        website,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="active != null" >
+        active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="orgType != null" >
+        #{orgType,jdbcType=INTEGER},
+      </if>
+      <if test="employees != null" >
+        #{employees,jdbcType=INTEGER},
+      </if>
+      <if test="tradedAs != null" >
+        #{tradedAs,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="founders != null" >
+        #{founders,jdbcType=VARCHAR},
+      </if>
+      <if test="headquarter != null" >
+        #{headquarter,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfLocations != null" >
+        #{numberOfLocations,jdbcType=INTEGER},
+      </if>
+      <if test="areaServed != null" >
+        #{areaServed,jdbcType=VARCHAR},
+      </if>
+      <if test="presenceIn != null" >
+        #{presenceIn,jdbcType=VARCHAR},
+      </if>
+      <if test="lpEmailId != null" >
+        #{lpEmailId,jdbcType=CHAR},
+      </if>
+      <if test="website != null" >
+        #{website,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        #{active,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.persistance.org.entity.Organizations" >
+    update organizations
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=CHAR},
+      </if>
+      <if test="orgType != null" >
+        org_type = #{orgType,jdbcType=INTEGER},
+      </if>
+      <if test="employees != null" >
+        employees = #{employees,jdbcType=INTEGER},
+      </if>
+      <if test="tradedAs != null" >
+        traded_as = #{tradedAs,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        industry = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="founders != null" >
+        founders = #{founders,jdbcType=VARCHAR},
+      </if>
+      <if test="headquarter != null" >
+        headquarter = #{headquarter,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfLocations != null" >
+        number_of_locations = #{numberOfLocations,jdbcType=INTEGER},
+      </if>
+      <if test="areaServed != null" >
+        area_served = #{areaServed,jdbcType=VARCHAR},
+      </if>
+      <if test="presenceIn != null" >
+        presence_in = #{presenceIn,jdbcType=VARCHAR},
+      </if>
+      <if test="lpEmailId != null" >
+        lp_email_id = #{lpEmailId,jdbcType=CHAR},
+      </if>
+      <if test="website != null" >
+        website = #{website,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        active = #{active,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lpdb.persistance.org.entity.Organizations" >
+    update organizations
+    set name = #{name,jdbcType=CHAR},
+      org_type = #{orgType,jdbcType=INTEGER},
+      employees = #{employees,jdbcType=INTEGER},
+      traded_as = #{tradedAs,jdbcType=VARCHAR},
+      industry = #{industry,jdbcType=VARCHAR},
+      founders = #{founders,jdbcType=VARCHAR},
+      headquarter = #{headquarter,jdbcType=INTEGER},
+      number_of_locations = #{numberOfLocations,jdbcType=INTEGER},
+      area_served = #{areaServed,jdbcType=VARCHAR},
+      presence_in = #{presenceIn,jdbcType=VARCHAR},
+      lp_email_id = #{lpEmailId,jdbcType=CHAR},
+      website = #{website,jdbcType=CHAR},
+      description = #{description,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      active = #{active,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
