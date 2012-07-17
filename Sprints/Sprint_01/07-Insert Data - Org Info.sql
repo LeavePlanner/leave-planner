@@ -1,20 +1,20 @@
--- insert into infodb.org_types
+-- insert into infodb.organizations_types
 
-INSERT INTO infodb.org_types(name,description)VALUES('Public','Public Organization');
-INSERT INTO infodb.org_types(name,description)VALUES('Private','Private Organization');
-INSERT INTO infodb.org_types(name,description)VALUES('Government','Government Organization');
+INSERT INTO infodb.organizations_types(name,description)VALUES('Public','Public Organization');
+INSERT INTO infodb.organizations_types(name,description)VALUES('Private','Private Organization');
+INSERT INTO infodb.organizations_types(name,description)VALUES('Government','Government Organization');
 
--- insert into infodb.org_organizations
-INSERT INTO infodb.org_organizations(name,org_type)VALUES('Komli Media India Pvt Ltd',2);
-INSERT INTO infodb.org_organizations(name,org_type)VALUES('Oracle India Pvt Ltd',1);
-INSERT INTO infodb.org_organizations(name,org_type)VALUES('IBM India Pvt Ltd',1);
-INSERT INTO infodb.org_organizations(name,org_type)VALUES('MindTree India Pvt Ltd',1);
+-- insert into infodb.organizations
+INSERT INTO infodb.organizations(name,org_type)VALUES('Komli Media India Pvt Ltd',2);
+INSERT INTO infodb.organizations(name,org_type)VALUES('Oracle India Pvt Ltd',1);
+INSERT INTO infodb.organizations(name,org_type)VALUES('IBM India Pvt Ltd',1);
+INSERT INTO infodb.organizations(name,org_type)VALUES('MindTree India Pvt Ltd',1);
 
--- insert into infodb.org_presence_in_cities
-INSERT INTO infodb.org_presence_in_cities(organization_id,city_id)VALUES(1,841); -- mumbai
-INSERT INTO infodb.org_presence_in_cities(organization_id,city_id)VALUES(1,1602); -- new delhi
-INSERT INTO infodb.org_presence_in_cities(organization_id,city_id)VALUES(1,187); -- bangalore
-INSERT INTO infodb.org_presence_in_cities(organization_id,city_id)VALUES(1,273); -- chennai
+-- insert into infodb.organizations_in_cities
+INSERT INTO infodb.organizations_in_cities(organization_id,city_id)VALUES(1,841); -- mumbai
+INSERT INTO infodb.organizations_in_cities(organization_id,city_id)VALUES(1,1602); -- new delhi
+INSERT INTO infodb.organizations_in_cities(organization_id,city_id)VALUES(1,187); -- bangalore
+INSERT INTO infodb.organizations_in_cities(organization_id,city_id)VALUES(1,273); -- chennai
 
 -- insert into infodb.leave_in_organizations
 -- komli mumbai

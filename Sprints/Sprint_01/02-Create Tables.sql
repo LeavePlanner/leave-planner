@@ -212,8 +212,8 @@ CREATE  TABLE IF NOT EXISTS  infodb.geo_district_capitals (
 -- 	 CREATE ORGANIZATION INFO TABLES
 -- ==========================================
 
--- create table infodb.org_types
-CREATE TABLE IF NOT EXISTS infodb.org_types (
+-- create table infodb.organizations_types
+CREATE TABLE IF NOT EXISTS infodb.organizations_types (
   id integer NOT NULL AUTO_INCREMENT,
   name char(10) NOT NULL,
   description varchar(5000),
@@ -224,8 +224,8 @@ CREATE TABLE IF NOT EXISTS infodb.org_types (
   PRIMARY KEY (id)
  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.org_organizations
-CREATE TABLE IF NOT EXISTS infodb.org_organizations (
+-- create table infodb.organizations
+CREATE TABLE IF NOT EXISTS infodb.organizations (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL,  
   org_type integer,
@@ -247,8 +247,8 @@ CREATE TABLE IF NOT EXISTS infodb.org_organizations (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.org_presence_in_cities
-CREATE TABLE IF NOT EXISTS infodb.org_presence_in_cities (
+-- create table infodb.organizations_in_cities
+CREATE TABLE IF NOT EXISTS infodb.organizations_in_cities (
   id integer NOT NULL AUTO_INCREMENT,
   organization_id  integer,
   city_id  integer,
