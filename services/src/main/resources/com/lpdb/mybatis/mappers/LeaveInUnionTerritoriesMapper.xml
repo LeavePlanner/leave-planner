@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lpdb.mybatis.leave.mapper.LeaveInUnionTerritoriesMapper" >
+  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.leave.entity.LeaveInUnionTerritories" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="leave_id" property="leaveId" jdbcType="INTEGER" />
+    <result column="union_territory_id" property="unionTerritoryId" jdbcType="INTEGER" />
+    <result column="leave_date" property="leaveDate" jdbcType="DATE" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="week_day" property="weekDay" jdbcType="CHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="active" property="active" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, leave_id, union_territory_id, leave_date, year, week_day, description, create_date, 
+    update_date, deleted, active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from leave_in_union_territories
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from leave_in_union_territories
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lpdb.mybatis.leave.entity.LeaveInUnionTerritories" >
+    insert into leave_in_union_territories (id, leave_id, union_territory_id, 
+      leave_date, year, week_day, 
+      description, create_date, update_date, 
+      deleted, active)
+    values (#{id,jdbcType=INTEGER}, #{leaveId,jdbcType=INTEGER}, #{unionTerritoryId,jdbcType=INTEGER}, 
+      #{leaveDate,jdbcType=DATE}, #{year,jdbcType=INTEGER}, #{weekDay,jdbcType=CHAR}, 
+      #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lpdb.mybatis.leave.entity.LeaveInUnionTerritories" >
+    insert into leave_in_union_territories
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="leaveId != null" >
+        leave_id,
+      </if>
+      <if test="unionTerritoryId != null" >
+        union_territory_id,
+      </if>
+      <if test="leaveDate != null" >
+        leave_date,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="weekDay != null" >
+        week_day,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="active != null" >
+        active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="leaveId != null" >
+        #{leaveId,jdbcType=INTEGER},
+      </if>
+      <if test="unionTerritoryId != null" >
+        #{unionTerritoryId,jdbcType=INTEGER},
+      </if>
+      <if test="leaveDate != null" >
+        #{leaveDate,jdbcType=DATE},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="weekDay != null" >
+        #{weekDay,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        #{active,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.leave.entity.LeaveInUnionTerritories" >
+    update leave_in_union_territories
+    <set >
+      <if test="leaveId != null" >
+        leave_id = #{leaveId,jdbcType=INTEGER},
+      </if>
+      <if test="unionTerritoryId != null" >
+        union_territory_id = #{unionTerritoryId,jdbcType=INTEGER},
+      </if>
+      <if test="leaveDate != null" >
+        leave_date = #{leaveDate,jdbcType=DATE},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="weekDay != null" >
+        week_day = #{weekDay,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        active = #{active,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.leave.entity.LeaveInUnionTerritories" >
+    update leave_in_union_territories
+    set leave_id = #{leaveId,jdbcType=INTEGER},
+      union_territory_id = #{unionTerritoryId,jdbcType=INTEGER},
+      leave_date = #{leaveDate,jdbcType=DATE},
+      year = #{year,jdbcType=INTEGER},
+      week_day = #{weekDay,jdbcType=CHAR},
+      description = #{description,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      active = #{active,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

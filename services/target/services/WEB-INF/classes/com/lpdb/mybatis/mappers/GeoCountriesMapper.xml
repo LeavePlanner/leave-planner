@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lpdb.mybatis.geo.mapper.GeoCountriesMapper" >
+  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.GeoCountries" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="CHAR" />
+    <result column="continent_id" property="continentId" jdbcType="INTEGER" />
+    <result column="region" property="region" jdbcType="CHAR" />
+    <result column="surface_area" property="surfaceArea" jdbcType="REAL" />
+    <result column="independence_year" property="independenceYear" jdbcType="SMALLINT" />
+    <result column="population" property="population" jdbcType="INTEGER" />
+    <result column="life_expectancy" property="lifeExpectancy" jdbcType="REAL" />
+    <result column="gnp" property="gnp" jdbcType="REAL" />
+    <result column="gnp_old" property="gnpOld" jdbcType="REAL" />
+    <result column="local_name" property="localName" jdbcType="CHAR" />
+    <result column="government_form" property="governmentForm" jdbcType="CHAR" />
+    <result column="head_of_state" property="headOfState" jdbcType="CHAR" />
+    <result column="code2" property="code2" jdbcType="CHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="active" property="active" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, name, continent_id, region, surface_area, independence_year, population, 
+    life_expectancy, gnp, gnp_old, local_name, government_form, head_of_state, code2, 
+    description, create_date, update_date, deleted, active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from geo_countries
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from geo_countries
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.GeoCountries" >
+    insert into geo_countries (id, code, name, continent_id, 
+      region, surface_area, independence_year, 
+      population, life_expectancy, gnp, 
+      gnp_old, local_name, government_form, 
+      head_of_state, code2, description, 
+      create_date, update_date, deleted, 
+      active)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=CHAR}, #{name,jdbcType=CHAR}, #{continentId,jdbcType=INTEGER}, 
+      #{region,jdbcType=CHAR}, #{surfaceArea,jdbcType=REAL}, #{independenceYear,jdbcType=SMALLINT}, 
+      #{population,jdbcType=INTEGER}, #{lifeExpectancy,jdbcType=REAL}, #{gnp,jdbcType=REAL}, 
+      #{gnpOld,jdbcType=REAL}, #{localName,jdbcType=CHAR}, #{governmentForm,jdbcType=CHAR}, 
+      #{headOfState,jdbcType=CHAR}, #{code2,jdbcType=CHAR}, #{description,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
+      #{active,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.GeoCountries" >
+    insert into geo_countries
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="continentId != null" >
+        continent_id,
+      </if>
+      <if test="region != null" >
+        region,
+      </if>
+      <if test="surfaceArea != null" >
+        surface_area,
+      </if>
+      <if test="independenceYear != null" >
+        independence_year,
+      </if>
+      <if test="population != null" >
+        population,
+      </if>
+      <if test="lifeExpectancy != null" >
+        life_expectancy,
+      </if>
+      <if test="gnp != null" >
+        gnp,
+      </if>
+      <if test="gnpOld != null" >
+        gnp_old,
+      </if>
+      <if test="localName != null" >
+        local_name,
+      </if>
+      <if test="governmentForm != null" >
+        government_form,
+      </if>
+      <if test="headOfState != null" >
+        head_of_state,
+      </if>
+      <if test="code2 != null" >
+        code2,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="active != null" >
+        active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="continentId != null" >
+        #{continentId,jdbcType=INTEGER},
+      </if>
+      <if test="region != null" >
+        #{region,jdbcType=CHAR},
+      </if>
+      <if test="surfaceArea != null" >
+        #{surfaceArea,jdbcType=REAL},
+      </if>
+      <if test="independenceYear != null" >
+        #{independenceYear,jdbcType=SMALLINT},
+      </if>
+      <if test="population != null" >
+        #{population,jdbcType=INTEGER},
+      </if>
+      <if test="lifeExpectancy != null" >
+        #{lifeExpectancy,jdbcType=REAL},
+      </if>
+      <if test="gnp != null" >
+        #{gnp,jdbcType=REAL},
+      </if>
+      <if test="gnpOld != null" >
+        #{gnpOld,jdbcType=REAL},
+      </if>
+      <if test="localName != null" >
+        #{localName,jdbcType=CHAR},
+      </if>
+      <if test="governmentForm != null" >
+        #{governmentForm,jdbcType=CHAR},
+      </if>
+      <if test="headOfState != null" >
+        #{headOfState,jdbcType=CHAR},
+      </if>
+      <if test="code2 != null" >
+        #{code2,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        #{active,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.GeoCountries" >
+    update geo_countries
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=CHAR},
+      </if>
+      <if test="continentId != null" >
+        continent_id = #{continentId,jdbcType=INTEGER},
+      </if>
+      <if test="region != null" >
+        region = #{region,jdbcType=CHAR},
+      </if>
+      <if test="surfaceArea != null" >
+        surface_area = #{surfaceArea,jdbcType=REAL},
+      </if>
+      <if test="independenceYear != null" >
+        independence_year = #{independenceYear,jdbcType=SMALLINT},
+      </if>
+      <if test="population != null" >
+        population = #{population,jdbcType=INTEGER},
+      </if>
+      <if test="lifeExpectancy != null" >
+        life_expectancy = #{lifeExpectancy,jdbcType=REAL},
+      </if>
+      <if test="gnp != null" >
+        gnp = #{gnp,jdbcType=REAL},
+      </if>
+      <if test="gnpOld != null" >
+        gnp_old = #{gnpOld,jdbcType=REAL},
+      </if>
+      <if test="localName != null" >
+        local_name = #{localName,jdbcType=CHAR},
+      </if>
+      <if test="governmentForm != null" >
+        government_form = #{governmentForm,jdbcType=CHAR},
+      </if>
+      <if test="headOfState != null" >
+        head_of_state = #{headOfState,jdbcType=CHAR},
+      </if>
+      <if test="code2 != null" >
+        code2 = #{code2,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        active = #{active,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.GeoCountries" >
+    update geo_countries
+    set code = #{code,jdbcType=CHAR},
+      name = #{name,jdbcType=CHAR},
+      continent_id = #{continentId,jdbcType=INTEGER},
+      region = #{region,jdbcType=CHAR},
+      surface_area = #{surfaceArea,jdbcType=REAL},
+      independence_year = #{independenceYear,jdbcType=SMALLINT},
+      population = #{population,jdbcType=INTEGER},
+      life_expectancy = #{lifeExpectancy,jdbcType=REAL},
+      gnp = #{gnp,jdbcType=REAL},
+      gnp_old = #{gnpOld,jdbcType=REAL},
+      local_name = #{localName,jdbcType=CHAR},
+      government_form = #{governmentForm,jdbcType=CHAR},
+      head_of_state = #{headOfState,jdbcType=CHAR},
+      code2 = #{code2,jdbcType=CHAR},
+      description = #{description,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      active = #{active,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

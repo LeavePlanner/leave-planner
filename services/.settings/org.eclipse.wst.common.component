@@ -1,8 +1,9 @@
-<project-modules id="moduleCoreId" project-version="2.0">
-  <wb-module deploy-name="RESTfulExample">
-    <property name="context-root" value="RESTfulExample"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+  <wb-module deploy-name="services">
     <wb-resource deploy-path="/" source-path="src/main/webapp"/>
     <property name="java-output-path" value="/target/classes"/>
+        <property name="context-root" value="services"/>
     <dependent-module archiveName="asm-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/asm/asm/3.1/asm-3.1.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
@@ -14,5 +15,8 @@
     </dependent-module>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java/rest"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java/database"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
   </wb-module>
 </project-modules>
