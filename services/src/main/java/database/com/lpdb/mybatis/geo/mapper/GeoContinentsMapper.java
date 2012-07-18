@@ -1,17 +1,17 @@
 package com.lpdb.mybatis.geo.mapper;
 
-import com.lpdb.mybatis.geo.entity.GeoContinents;
+import com.lpdb.mybatis.geo.entity.Continents;
 
 public interface GeoContinentsMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(GeoContinents record);
+    int insert(Continents record);
 
-    int insertSelective(GeoContinents record);
+    int insertSelective(Continents record);
 
-    GeoContinents selectByPrimaryKey(Integer id);
+    Continents selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(GeoContinents record);
+    int updateByPrimaryKeySelective(Continents record);
 
-    int updateByPrimaryKey(GeoContinents record);
+    int updateByPrimaryKey(Continents record);
 }

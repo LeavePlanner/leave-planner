@@ -1,17 +1,17 @@
 package com.lpdb.mybatis.geo.mapper;
 
-import com.lpdb.mybatis.geo.entity.GeoCityTypes;
+import com.lpdb.mybatis.geo.entity.CityTypes;
 
 public interface GeoCityTypesMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(GeoCityTypes record);
+    int insert(CityTypes record);
 
-    int insertSelective(GeoCityTypes record);
+    int insertSelective(CityTypes record);
 
-    GeoCityTypes selectByPrimaryKey(Integer id);
+    CityTypes selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(GeoCityTypes record);
+    int updateByPrimaryKeySelective(CityTypes record);
 
-    int updateByPrimaryKey(GeoCityTypes record);
+    int updateByPrimaryKey(CityTypes record);
 }

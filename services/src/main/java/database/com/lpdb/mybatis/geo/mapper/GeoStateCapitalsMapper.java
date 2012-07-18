@@ -1,17 +1,17 @@
 package com.lpdb.mybatis.geo.mapper;
 
-import com.lpdb.mybatis.geo.entity.GeoStateCapitals;
+import com.lpdb.mybatis.geo.entity.StateCapitals;
 
 public interface GeoStateCapitalsMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(GeoStateCapitals record);
+    int insert(StateCapitals record);
 
-    int insertSelective(GeoStateCapitals record);
+    int insertSelective(StateCapitals record);
 
-    GeoStateCapitals selectByPrimaryKey(Integer id);
+    StateCapitals selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(GeoStateCapitals record);
+    int updateByPrimaryKeySelective(StateCapitals record);
 
-    int updateByPrimaryKey(GeoStateCapitals record);
+    int updateByPrimaryKey(StateCapitals record);
 }

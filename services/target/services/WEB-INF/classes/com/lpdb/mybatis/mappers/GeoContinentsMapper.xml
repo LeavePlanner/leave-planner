@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lpdb.mybatis.geo.mapper.GeoContinentsMapper" >
-  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.GeoContinents" >
+  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.Continents" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from geo_continents
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.GeoContinents" >
+  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.Continents" >
     insert into geo_continents (id, name, description, 
       create_date, update_date, deleted, 
       active)
@@ -31,7 +31,7 @@
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
       #{active,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.GeoContinents" >
+  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.Continents" >
     insert into geo_continents
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.GeoContinents" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.Continents" >
     update geo_continents
     <set >
       <if test="name != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.GeoContinents" >
+  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.Continents" >
     update geo_continents
     set name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},

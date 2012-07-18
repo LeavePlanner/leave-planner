@@ -2,6 +2,9 @@ package com.lpdb.mybatis.geo.entity;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Cities {
     private Integer id;
 

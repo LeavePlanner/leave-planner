@@ -1,17 +1,17 @@
 package com.lpdb.mybatis.geo.mapper;
 
-import com.lpdb.mybatis.geo.entity.GeoUnionTerritories;
+import com.lpdb.mybatis.geo.entity.UnionTerritories;
 
 public interface GeoUnionTerritoriesMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(GeoUnionTerritories record);
+    int insert(UnionTerritories record);
 
-    int insertSelective(GeoUnionTerritories record);
+    int insertSelective(UnionTerritories record);
 
-    GeoUnionTerritories selectByPrimaryKey(Integer id);
+    UnionTerritories selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(GeoUnionTerritories record);
+    int updateByPrimaryKeySelective(UnionTerritories record);
 
-    int updateByPrimaryKey(GeoUnionTerritories record);
+    int updateByPrimaryKey(UnionTerritories record);
 }

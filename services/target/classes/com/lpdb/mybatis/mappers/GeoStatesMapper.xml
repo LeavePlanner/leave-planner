@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lpdb.mybatis.geo.mapper.GeoStatesMapper" >
-  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.GeoStates" >
+  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.States" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="CHAR" />
     <result column="code" property="code" jdbcType="CHAR" />
@@ -40,7 +40,7 @@
     delete from geo_states
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.GeoStates" >
+  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.States" >
     insert into geo_states (id, name, code, country_id, 
       area, population, language, 
       largest_city, number_of_geo_districts, number_of_villages, 
@@ -56,7 +56,7 @@
       #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.GeoStates" >
+  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.States" >
     insert into geo_states
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -189,7 +189,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.GeoStates" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.States" >
     update geo_states
     <set >
       <if test="name != null" >
@@ -255,7 +255,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.GeoStates" >
+  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.States" >
     update geo_states
     set name = #{name,jdbcType=CHAR},
       code = #{code,jdbcType=CHAR},

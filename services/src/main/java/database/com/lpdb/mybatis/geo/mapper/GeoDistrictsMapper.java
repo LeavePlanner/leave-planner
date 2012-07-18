@@ -1,17 +1,17 @@
 package com.lpdb.mybatis.geo.mapper;
 
-import com.lpdb.mybatis.geo.entity.GeoDistricts;
+import com.lpdb.mybatis.geo.entity.Districts;
 
 public interface GeoDistrictsMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(GeoDistricts record);
+    int insert(Districts record);
 
-    int insertSelective(GeoDistricts record);
+    int insertSelective(Districts record);
 
-    GeoDistricts selectByPrimaryKey(Integer id);
+    Districts selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(GeoDistricts record);
+    int updateByPrimaryKeySelective(Districts record);
 
-    int updateByPrimaryKey(GeoDistricts record);
+    int updateByPrimaryKey(Districts record);
 }

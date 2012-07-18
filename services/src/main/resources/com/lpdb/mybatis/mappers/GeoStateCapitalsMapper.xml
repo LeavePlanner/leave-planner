@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lpdb.mybatis.geo.mapper.GeoStateCapitalsMapper" >
-  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.GeoStateCapitals" >
+  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.StateCapitals" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="state_id" property="stateId" jdbcType="INTEGER" />
     <result column="city_id" property="cityId" jdbcType="INTEGER" />
@@ -28,7 +28,7 @@
     delete from geo_state_capitals
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.GeoStateCapitals" >
+  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.StateCapitals" >
     insert into geo_state_capitals (id, state_id, city_id, 
       capital_type, capital_from_date, capital_to_date, 
       description, create_date, update_date, 
@@ -38,7 +38,7 @@
       #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.GeoStateCapitals" >
+  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.StateCapitals" >
     insert into geo_state_capitals
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.GeoStateCapitals" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.StateCapitals" >
     update geo_state_capitals
     <set >
       <if test="stateId != null" >
@@ -147,7 +147,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.GeoStateCapitals" >
+  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.StateCapitals" >
     update geo_state_capitals
     set state_id = #{stateId,jdbcType=INTEGER},
       city_id = #{cityId,jdbcType=INTEGER},

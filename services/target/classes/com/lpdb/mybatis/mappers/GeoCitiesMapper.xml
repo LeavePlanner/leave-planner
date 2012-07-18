@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lpdb.mybatis.geo.mapper.GeoCitiesMapper" >
-  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.GeoCities" >
+  <resultMap id="BaseResultMap" type="com.lpdb.mybatis.geo.entity.Cities" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="CHAR" />
     <result column="district_id" property="districtId" jdbcType="INTEGER" />
@@ -36,7 +36,7 @@
     delete from geo_cities
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.GeoCities" >
+  <insert id="insert" parameterType="com.lpdb.mybatis.geo.entity.Cities" >
     insert into geo_cities (id, name, district_id, 
       state_id, union_territory_id, city_type, 
       pupulation, coordinates, region, 
@@ -52,7 +52,7 @@
       #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.GeoCities" >
+  <insert id="insertSelective" parameterType="com.lpdb.mybatis.geo.entity.Cities" >
     insert into geo_cities
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -179,7 +179,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.GeoCities" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.lpdb.mybatis.geo.entity.Cities" >
     update geo_cities
     <set >
       <if test="name != null" >
@@ -242,7 +242,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.GeoCities" >
+  <update id="updateByPrimaryKey" parameterType="com.lpdb.mybatis.geo.entity.Cities" >
     update geo_cities
     set name = #{name,jdbcType=CHAR},
       district_id = #{districtId,jdbcType=INTEGER},

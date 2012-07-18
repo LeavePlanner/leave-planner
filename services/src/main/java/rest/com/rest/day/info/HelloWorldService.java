@@ -13,10 +13,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.lpdb.mybatis.geo.entity.GeoCities;
+import com.lpdb.mybatis.geo.entity.Cities;
 import com.lpdb.mybatis.geo.mapper.GeoCitiesMapper;
 
-@Path("/hello")
+@Path("/geo")
 public class HelloWorldService {
  
 	@GET
@@ -39,10 +39,10 @@ public class HelloWorldService {
 		SqlSession session = sqlMapper.openSession();
 		try {
 			GeoCitiesMapper mapper = session.getMapper(GeoCitiesMapper.class);
-			GeoCities geoCities = mapper.selectByPrimaryKey(1);
-			System.out.println(geoCities.getName() + ":"
-						+ geoCities.getDescription());
-			output = geoCities.getName();
+			Cities cities = mapper.selectByPrimaryKey(Integer.parseInt(msg));
+			System.out.println(cities.getName() + ":"
+						+ cities.getDescription());
+			output = cities.getName();
 		} finally {
 			session.close();
 		}
