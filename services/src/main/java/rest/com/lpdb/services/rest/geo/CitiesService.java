@@ -21,7 +21,7 @@ import com.lpdb.mybatis.geo.mapper.GeoCitiesMapper;
 public class CitiesService {
  
 	@GET
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
 	@Path("/{param}")
 	public Cities getCity(@PathParam("param") String msg) {
  
@@ -89,5 +89,39 @@ public class CitiesService {
 		return cities;
  
 	}
+	
+	/*@GET
+	@Produces({ MediaType.APPLICATION_XML })
+	@Path("/{param}")
+	public Cities getCity3(@PathParam("param") String msg) {
+ 
+		Cities cities = null;
+ 
+		String resource = "configuration.xml";
+		Reader reader = null;
+		SqlSessionFactory sqlMapper = null;
+		try {
+			reader = Resources.getResourceAsReader(resource);
+			sqlMapper = new SqlSessionFactoryBuilder().build(reader);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		SqlSession session = sqlMapper.openSession();
+		try {
+			GeoCitiesMapper mapper = session.getMapper(GeoCitiesMapper.class);
+			cities = mapper.selectByPrimaryKey(Integer.parseInt(msg));
+			System.out.println(cities.getName() + ":"
+						+ cities.getDescription());
+			
+		} finally {
+			session.close();
+		}
+		
+		
+		return cities;
+ 
+	}*/
  
 }
