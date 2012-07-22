@@ -11,9 +11,35 @@ xsi:schemaLocation="
 			http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
  
+	<context:component-scan base-package="com.lpdb" />
 
  	<context:property-placeholder location="/WEB-INF/classes/db.properties, /WEB-INF/classes/mybatis.properties" />
 
+    <!-- Enable annotation style of managing transactions -->
+    
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    
+    <!-- Declare a datasource that has pooling capabilities -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	    destroy-method="close" p:driverClass="${app.jdbc.driverClassName}"
+	    p:jdbcUrl="${app.jdbc.url}" p:user="${app.jdbc.username}" p:password="${app.jdbc.password}"
+	    p:acquireIncrement="10" p:idleConnectionTestPeriod="60" p:maxPoolSize="100"
+	    p:maxStatements="50" p:minPoolSize="10" />
 
+    <!-- Declare a transaction manager -->
+    <bean id="transactionManager"
+	    class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+	    p:dataSource-ref="dataSource" />
+
+    <!-- define the SqlSessionFactory, notice that configLocation is not needed when you use MapperFactoryBean -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="WEB-INF/classes/ibatis-configuration.xml" />
+    </bean>
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="${MapperInterfacePackage}" />
+    </bean>
+ 
  
 </beans>
