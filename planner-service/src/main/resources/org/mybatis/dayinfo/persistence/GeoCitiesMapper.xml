@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.mybatis.dayinfo.persistence.GeoCitiesMapper" >
+  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.Cities" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="CHAR" />
+    <result column="district_id" property="districtId" jdbcType="INTEGER" />
+    <result column="state_id" property="stateId" jdbcType="INTEGER" />
+    <result column="union_territory_id" property="unionTerritoryId" jdbcType="INTEGER" />
+    <result column="city_type" property="cityType" jdbcType="INTEGER" />
+    <result column="pupulation" property="pupulation" jdbcType="INTEGER" />
+    <result column="coordinates" property="coordinates" jdbcType="CHAR" />
+    <result column="region" property="region" jdbcType="CHAR" />
+    <result column="mayor" property="mayor" jdbcType="CHAR" />
+    <result column="commissioner" property="commissioner" jdbcType="CHAR" />
+    <result column="density" property="density" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="INTEGER" />
+    <result column="elevation" property="elevation" jdbcType="CHAR" />
+    <result column="website" property="website" jdbcType="CHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="active" property="active" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, district_id, state_id, union_territory_id, city_type, pupulation, coordinates, 
+    region, mayor, commissioner, density, area, elevation, website, description, create_date, 
+    update_date, deleted, active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from geo_cities
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from geo_cities
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.Cities" >
+    insert into geo_cities (id, name, district_id, 
+      state_id, union_territory_id, city_type, 
+      pupulation, coordinates, region, 
+      mayor, commissioner, density, 
+      area, elevation, website, 
+      description, create_date, update_date, 
+      deleted, active)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{districtId,jdbcType=INTEGER}, 
+      #{stateId,jdbcType=INTEGER}, #{unionTerritoryId,jdbcType=INTEGER}, #{cityType,jdbcType=INTEGER}, 
+      #{pupulation,jdbcType=INTEGER}, #{coordinates,jdbcType=CHAR}, #{region,jdbcType=CHAR}, 
+      #{mayor,jdbcType=CHAR}, #{commissioner,jdbcType=CHAR}, #{density,jdbcType=INTEGER}, 
+      #{area,jdbcType=INTEGER}, #{elevation,jdbcType=CHAR}, #{website,jdbcType=CHAR}, 
+      #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.Cities" >
+    insert into geo_cities
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="districtId != null" >
+        district_id,
+      </if>
+      <if test="stateId != null" >
+        state_id,
+      </if>
+      <if test="unionTerritoryId != null" >
+        union_territory_id,
+      </if>
+      <if test="cityType != null" >
+        city_type,
+      </if>
+      <if test="pupulation != null" >
+        pupulation,
+      </if>
+      <if test="coordinates != null" >
+        coordinates,
+      </if>
+      <if test="region != null" >
+        region,
+      </if>
+      <if test="mayor != null" >
+        mayor,
+      </if>
+      <if test="commissioner != null" >
+        commissioner,
+      </if>
+      <if test="density != null" >
+        density,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="elevation != null" >
+        elevation,
+      </if>
+      <if test="website != null" >
+        website,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="active != null" >
+        active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="districtId != null" >
+        #{districtId,jdbcType=INTEGER},
+      </if>
+      <if test="stateId != null" >
+        #{stateId,jdbcType=INTEGER},
+      </if>
+      <if test="unionTerritoryId != null" >
+        #{unionTerritoryId,jdbcType=INTEGER},
+      </if>
+      <if test="cityType != null" >
+        #{cityType,jdbcType=INTEGER},
+      </if>
+      <if test="pupulation != null" >
+        #{pupulation,jdbcType=INTEGER},
+      </if>
+      <if test="coordinates != null" >
+        #{coordinates,jdbcType=CHAR},
+      </if>
+      <if test="region != null" >
+        #{region,jdbcType=CHAR},
+      </if>
+      <if test="mayor != null" >
+        #{mayor,jdbcType=CHAR},
+      </if>
+      <if test="commissioner != null" >
+        #{commissioner,jdbcType=CHAR},
+      </if>
+      <if test="density != null" >
+        #{density,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="elevation != null" >
+        #{elevation,jdbcType=CHAR},
+      </if>
+      <if test="website != null" >
+        #{website,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        #{active,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.Cities" >
+    update geo_cities
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=CHAR},
+      </if>
+      <if test="districtId != null" >
+        district_id = #{districtId,jdbcType=INTEGER},
+      </if>
+      <if test="stateId != null" >
+        state_id = #{stateId,jdbcType=INTEGER},
+      </if>
+      <if test="unionTerritoryId != null" >
+        union_territory_id = #{unionTerritoryId,jdbcType=INTEGER},
+      </if>
+      <if test="cityType != null" >
+        city_type = #{cityType,jdbcType=INTEGER},
+      </if>
+      <if test="pupulation != null" >
+        pupulation = #{pupulation,jdbcType=INTEGER},
+      </if>
+      <if test="coordinates != null" >
+        coordinates = #{coordinates,jdbcType=CHAR},
+      </if>
+      <if test="region != null" >
+        region = #{region,jdbcType=CHAR},
+      </if>
+      <if test="mayor != null" >
+        mayor = #{mayor,jdbcType=CHAR},
+      </if>
+      <if test="commissioner != null" >
+        commissioner = #{commissioner,jdbcType=CHAR},
+      </if>
+      <if test="density != null" >
+        density = #{density,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="elevation != null" >
+        elevation = #{elevation,jdbcType=CHAR},
+      </if>
+      <if test="website != null" >
+        website = #{website,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        active = #{active,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.Cities" >
+    update geo_cities
+    set name = #{name,jdbcType=CHAR},
+      district_id = #{districtId,jdbcType=INTEGER},
+      state_id = #{stateId,jdbcType=INTEGER},
+      union_territory_id = #{unionTerritoryId,jdbcType=INTEGER},
+      city_type = #{cityType,jdbcType=INTEGER},
+      pupulation = #{pupulation,jdbcType=INTEGER},
+      coordinates = #{coordinates,jdbcType=CHAR},
+      region = #{region,jdbcType=CHAR},
+      mayor = #{mayor,jdbcType=CHAR},
+      commissioner = #{commissioner,jdbcType=CHAR},
+      density = #{density,jdbcType=INTEGER},
+      area = #{area,jdbcType=INTEGER},
+      elevation = #{elevation,jdbcType=CHAR},
+      website = #{website,jdbcType=CHAR},
+      description = #{description,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      active = #{active,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
