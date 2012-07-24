@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.mybatis.dayinfo.persistence.GeoStateMapper" >
+  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.GeoState" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="CHAR" />
+    <result column="code" property="code" jdbcType="CHAR" />
+    <result column="country_id" property="countryId" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="INTEGER" />
+    <result column="population" property="population" jdbcType="REAL" />
+    <result column="language" property="language" jdbcType="CHAR" />
+    <result column="largest_city" property="largestCity" jdbcType="INTEGER" />
+    <result column="number_of_geo_districts" property="numberOfGeoDistricts" jdbcType="INTEGER" />
+    <result column="number_of_villages" property="numberOfVillages" jdbcType="INTEGER" />
+    <result column="number_of_towns" property="numberOfTowns" jdbcType="INTEGER" />
+    <result column="population_density" property="populationDensity" jdbcType="INTEGER" />
+    <result column="literacy_rate" property="literacyRate" jdbcType="REAL" />
+    <result column="percent_urban_population" property="percentUrbanPopulation" jdbcType="REAL" />
+    <result column="sex_ratio" property="sexRatio" jdbcType="INTEGER" />
+    <result column="sex_ratio_zero_to_six" property="sexRatioZeroToSix" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="active" property="active" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, code, country_id, area, population, language, largest_city, number_of_geo_districts, 
+    number_of_villages, number_of_towns, population_density, literacy_rate, percent_urban_population, 
+    sex_ratio, sex_ratio_zero_to_six, description, create_date, update_date, deleted, 
+    active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from geo_state
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from geo_state
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.GeoState" >
+    insert into geo_state (id, name, code, country_id, 
+      area, population, language, 
+      largest_city, number_of_geo_districts, number_of_villages, 
+      number_of_towns, population_density, literacy_rate, 
+      percent_urban_population, sex_ratio, sex_ratio_zero_to_six, 
+      description, create_date, update_date, 
+      deleted, active)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{code,jdbcType=CHAR}, #{countryId,jdbcType=INTEGER}, 
+      #{area,jdbcType=INTEGER}, #{population,jdbcType=REAL}, #{language,jdbcType=CHAR}, 
+      #{largestCity,jdbcType=INTEGER}, #{numberOfGeoDistricts,jdbcType=INTEGER}, #{numberOfVillages,jdbcType=INTEGER}, 
+      #{numberOfTowns,jdbcType=INTEGER}, #{populationDensity,jdbcType=INTEGER}, #{literacyRate,jdbcType=REAL}, 
+      #{percentUrbanPopulation,jdbcType=REAL}, #{sexRatio,jdbcType=INTEGER}, #{sexRatioZeroToSix,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.GeoState" >
+    insert into geo_state
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="countryId != null" >
+        country_id,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="population != null" >
+        population,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="largestCity != null" >
+        largest_city,
+      </if>
+      <if test="numberOfGeoDistricts != null" >
+        number_of_geo_districts,
+      </if>
+      <if test="numberOfVillages != null" >
+        number_of_villages,
+      </if>
+      <if test="numberOfTowns != null" >
+        number_of_towns,
+      </if>
+      <if test="populationDensity != null" >
+        population_density,
+      </if>
+      <if test="literacyRate != null" >
+        literacy_rate,
+      </if>
+      <if test="percentUrbanPopulation != null" >
+        percent_urban_population,
+      </if>
+      <if test="sexRatio != null" >
+        sex_ratio,
+      </if>
+      <if test="sexRatioZeroToSix != null" >
+        sex_ratio_zero_to_six,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="active != null" >
+        active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=CHAR},
+      </if>
+      <if test="countryId != null" >
+        #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="population != null" >
+        #{population,jdbcType=REAL},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=CHAR},
+      </if>
+      <if test="largestCity != null" >
+        #{largestCity,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfGeoDistricts != null" >
+        #{numberOfGeoDistricts,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfVillages != null" >
+        #{numberOfVillages,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfTowns != null" >
+        #{numberOfTowns,jdbcType=INTEGER},
+      </if>
+      <if test="populationDensity != null" >
+        #{populationDensity,jdbcType=INTEGER},
+      </if>
+      <if test="literacyRate != null" >
+        #{literacyRate,jdbcType=REAL},
+      </if>
+      <if test="percentUrbanPopulation != null" >
+        #{percentUrbanPopulation,jdbcType=REAL},
+      </if>
+      <if test="sexRatio != null" >
+        #{sexRatio,jdbcType=INTEGER},
+      </if>
+      <if test="sexRatioZeroToSix != null" >
+        #{sexRatioZeroToSix,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        #{active,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.GeoState" >
+    update geo_state
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=CHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=CHAR},
+      </if>
+      <if test="countryId != null" >
+        country_id = #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="population != null" >
+        population = #{population,jdbcType=REAL},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=CHAR},
+      </if>
+      <if test="largestCity != null" >
+        largest_city = #{largestCity,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfGeoDistricts != null" >
+        number_of_geo_districts = #{numberOfGeoDistricts,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfVillages != null" >
+        number_of_villages = #{numberOfVillages,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfTowns != null" >
+        number_of_towns = #{numberOfTowns,jdbcType=INTEGER},
+      </if>
+      <if test="populationDensity != null" >
+        population_density = #{populationDensity,jdbcType=INTEGER},
+      </if>
+      <if test="literacyRate != null" >
+        literacy_rate = #{literacyRate,jdbcType=REAL},
+      </if>
+      <if test="percentUrbanPopulation != null" >
+        percent_urban_population = #{percentUrbanPopulation,jdbcType=REAL},
+      </if>
+      <if test="sexRatio != null" >
+        sex_ratio = #{sexRatio,jdbcType=INTEGER},
+      </if>
+      <if test="sexRatioZeroToSix != null" >
+        sex_ratio_zero_to_six = #{sexRatioZeroToSix,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="active != null" >
+        active = #{active,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.GeoState" >
+    update geo_state
+    set name = #{name,jdbcType=CHAR},
+      code = #{code,jdbcType=CHAR},
+      country_id = #{countryId,jdbcType=INTEGER},
+      area = #{area,jdbcType=INTEGER},
+      population = #{population,jdbcType=REAL},
+      language = #{language,jdbcType=CHAR},
+      largest_city = #{largestCity,jdbcType=INTEGER},
+      number_of_geo_districts = #{numberOfGeoDistricts,jdbcType=INTEGER},
+      number_of_villages = #{numberOfVillages,jdbcType=INTEGER},
+      number_of_towns = #{numberOfTowns,jdbcType=INTEGER},
+      population_density = #{populationDensity,jdbcType=INTEGER},
+      literacy_rate = #{literacyRate,jdbcType=REAL},
+      percent_urban_population = #{percentUrbanPopulation,jdbcType=REAL},
+      sex_ratio = #{sexRatio,jdbcType=INTEGER},
+      sex_ratio_zero_to_six = #{sexRatioZeroToSix,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      active = #{active,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

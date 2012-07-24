@@ -1,7 +1,9 @@
 package org.mybatis.dayinfo.service;
 
-import org.mybatis.dayinfo.domain.Cities;
-import org.mybatis.dayinfo.persistence.GeoCitiesMapper;
+import java.util.List;
+
+import org.mybatis.dayinfo.domain.GeoCity;
+import org.mybatis.dayinfo.persistence.GeoCityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,19 +11,14 @@ import org.springframework.stereotype.Service;
 public class CityService {
 
   @Autowired
-  public GeoCitiesMapper geoCitiesMapper;
+  public GeoCityMapper geoCityMapper;
 
-  public Cities getAccount(String username) {
-    return geoCitiesMapper.selectByPrimaryKey(187);
+  public GeoCity getCity (int cityId){
+	  return geoCityMapper.selectByPrimaryKey(cityId);
+  }
+  
+  public List<GeoCity> getCities(){
+	  
   }
 
-	public GeoCitiesMapper getGeoCitiesMapper() {
-		return geoCitiesMapper;
-	}
-	
-	public void setGeoCitiesMapper(GeoCitiesMapper geoCitiesMapper) {
-		this.geoCitiesMapper = geoCitiesMapper;
-	}
-	  
-  
 }

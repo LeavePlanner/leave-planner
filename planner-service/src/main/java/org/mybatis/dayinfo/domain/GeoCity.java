@@ -2,10 +2,7 @@ package org.mybatis.dayinfo.domain;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
-public class Cities {
+public class GeoCity {
     private Integer id;
 
     private String name;
