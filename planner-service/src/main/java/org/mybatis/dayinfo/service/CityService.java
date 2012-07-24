@@ -17,7 +17,7 @@ public class CityService {
 	  return geoCityMapper.selectByPrimaryKey(cityId);
   }
   
-  public List<GeoCity> getCities(){
+  public List<GeoCity> getAllCities(){
 	  return null;
   }
 
