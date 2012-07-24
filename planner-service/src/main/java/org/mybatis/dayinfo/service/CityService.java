@@ -18,7 +18,7 @@ public class CityService {
   }
   
   public List<GeoCity> getAllCities(){
-	  return null;
+	  return geoCityMapper.getCityList();
   }
 
 }
