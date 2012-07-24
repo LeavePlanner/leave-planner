@@ -76,19 +76,3 @@ DROP TABLE IF EXISTS infodb.leave_calendar_types;
 
 -- drop table infodb.leave_calendars
 DROP TABLE IF EXISTS infodb.leave_calendars;
-
-
-
-
-
-
-
-
-
-drop table `infodb`.`organizations`;
-drop table `infodb`.`organizations_in_cities`;
-drop table `infodb`.`organizations_types`;
-drop table `infodb`.`leave_in_organizations`;
-
-
-

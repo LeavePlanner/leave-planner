@@ -3,8 +3,8 @@
 -- 	 CREATE GEOGRAPHY INFO TABLES
 -- ==========================================
 
--- create infodb.geo_continent table
-CREATE TABLE IF NOT EXISTS infodb.geo_continent (
+-- create geo_continents table
+CREATE TABLE IF NOT EXISTS infodb.geo_continents (
   id integer NOT NULL AUTO_INCREMENT,
   name varchar(52) NOT NULL,
   description varchar(5000),
@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS infodb.geo_continent (
   PRIMARY KEY ( id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create infodb.geo_country table
-CREATE TABLE IF NOT EXISTS infodb.geo_country (
+-- create geo_countries table
+CREATE TABLE IF NOT EXISTS infodb.geo_countries (
   id integer NOT NULL AUTO_INCREMENT,
   code char(3) NOT NULL,
   name char(52) NOT NULL,
@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS infodb.geo_country (
   PRIMARY KEY (id)  
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_state
-CREATE TABLE IF NOT EXISTS infodb.geo_state (
+-- create table geo_states
+CREATE TABLE IF NOT EXISTS infodb.geo_states (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL,
   code char(2) NOT NULL,  
@@ -66,8 +66,8 @@ CREATE TABLE IF NOT EXISTS infodb.geo_state (
   PRIMARY KEY (id)  
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_union_territory
-CREATE TABLE IF NOT EXISTS infodb.geo_union_territory (
+-- create table infodb.geo_union_territories
+CREATE TABLE IF NOT EXISTS infodb.geo_union_territories (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL,
   code char(2) NOT NULL,  
@@ -92,8 +92,8 @@ CREATE TABLE IF NOT EXISTS infodb.geo_union_territory (
   PRIMARY KEY (id)  
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_district
-CREATE TABLE IF NOT EXISTS infodb.geo_district (
+-- create table infodb.geo_districts
+CREATE TABLE IF NOT EXISTS infodb.geo_districts (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL,
   code char(2) NOT NULL,  
@@ -111,8 +111,8 @@ CREATE TABLE IF NOT EXISTS infodb.geo_district (
   PRIMARY KEY (id)  
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_city_type
-CREATE TABLE IF NOT EXISTS infodb.geo_city_type (
+-- create table infodb.geo_city_types
+CREATE TABLE IF NOT EXISTS infodb.geo_city_types (
   id integer NOT NULL AUTO_INCREMENT,
   code char(10) NOT NULL,
   description varchar(5000),
@@ -123,8 +123,8 @@ CREATE TABLE IF NOT EXISTS infodb.geo_city_type (
   PRIMARY KEY (id)
  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_city
-CREATE TABLE IF NOT EXISTS infodb.geo_city (
+-- create table infodb.geo_cities
+CREATE TABLE IF NOT EXISTS infodb.geo_cities (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL,
   district_id integer,
@@ -148,8 +148,8 @@ CREATE TABLE IF NOT EXISTS infodb.geo_city (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_capital_type
-CREATE  TABLE IF NOT EXISTS  infodb.geo_capital_type  (
+-- create table infodb.geo_capital_types
+CREATE  TABLE IF NOT EXISTS  infodb.geo_capital_types  (
    id integer NOT NULL AUTO_INCREMENT,
    name  char(255),
    description varchar(5000),
@@ -160,8 +160,8 @@ CREATE  TABLE IF NOT EXISTS  infodb.geo_capital_type  (
    PRIMARY KEY (id)   
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_country_capital
-CREATE  TABLE IF NOT EXISTS  infodb.geo_country_capital (
+-- create table infodb.geo_country_capitals
+CREATE  TABLE IF NOT EXISTS  infodb.geo_country_capitals (
    id integer NOT NULL AUTO_INCREMENT,
    country_id  integer,
    city_id  integer,
@@ -176,8 +176,8 @@ CREATE  TABLE IF NOT EXISTS  infodb.geo_country_capital (
    PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_state_capital
-CREATE  TABLE IF NOT EXISTS  infodb.geo_state_capital (
+-- create table infodb.geo_state_capitals
+CREATE  TABLE IF NOT EXISTS  infodb.geo_state_capitals (
    id integer NOT NULL AUTO_INCREMENT,
    state_id  integer,
    city_id  integer,
@@ -192,8 +192,8 @@ CREATE  TABLE IF NOT EXISTS  infodb.geo_state_capital (
    PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.geo_district_capital
-CREATE  TABLE IF NOT EXISTS  infodb.geo_district_capital (
+-- create table infodb.geo_district_capitals
+CREATE  TABLE IF NOT EXISTS  infodb.geo_district_capitals (
    id integer NOT NULL AUTO_INCREMENT,
    district_id  integer,
    city_id  integer,
@@ -212,8 +212,8 @@ CREATE  TABLE IF NOT EXISTS  infodb.geo_district_capital (
 -- 	 CREATE ORGANIZATION INFO TABLES
 -- ==========================================
 
--- create table infodb.organization_type
-CREATE TABLE IF NOT EXISTS infodb.organization_type (
+-- create table infodb.organizations_types
+CREATE TABLE IF NOT EXISTS infodb.organizations_types (
   id integer NOT NULL AUTO_INCREMENT,
   name char(10) NOT NULL,
   description varchar(5000),
@@ -224,8 +224,8 @@ CREATE TABLE IF NOT EXISTS infodb.organization_type (
   PRIMARY KEY (id)
  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.organization
-CREATE TABLE IF NOT EXISTS infodb.organization (
+-- create table infodb.organizations
+CREATE TABLE IF NOT EXISTS infodb.organizations (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL,  
   org_type integer,
@@ -247,8 +247,8 @@ CREATE TABLE IF NOT EXISTS infodb.organization (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- create table infodb.organization_in_city
-CREATE TABLE IF NOT EXISTS infodb.organization_in_city (
+-- create table infodb.organizations_in_cities
+CREATE TABLE IF NOT EXISTS infodb.organizations_in_cities (
   id integer NOT NULL AUTO_INCREMENT,
   organization_id  integer,
   city_id  integer,
@@ -266,8 +266,8 @@ CREATE TABLE IF NOT EXISTS infodb.organization_in_city (
 -- 	 CREATE LEAVE INFO TABLES
 -- ==========================================
 
--- creat table infodb.leave_type
-CREATE TABLE IF NOT EXISTS infodb.leave_type (
+-- creat table infodb.leave_types
+CREATE TABLE IF NOT EXISTS infodb.leave_types (
   id integer NOT NULL AUTO_INCREMENT,
   type char(50) NOT NULL,
   alias char(255) DEFAULT '',
@@ -279,8 +279,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_type (
   PRIMARY KEY (id) 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- creat table infodb.leave_day
-CREATE TABLE IF NOT EXISTS infodb.leave_day (
+-- creat table infodb.leave_days
+CREATE TABLE IF NOT EXISTS infodb.leave_days (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL UNIQUE,
   alias char(255) DEFAULT '',
@@ -296,8 +296,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_day (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- creat table infodb.leave_in_country
-CREATE TABLE IF NOT EXISTS infodb.leave_in_country (
+-- creat table infodb.leave_in_countries
+CREATE TABLE IF NOT EXISTS infodb.leave_in_countries (
   id integer NOT NULL AUTO_INCREMENT,
   leave_id integer,
   country_id integer,
@@ -312,8 +312,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_in_country (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- creat table infodb.leave_in_state
-CREATE TABLE IF NOT EXISTS infodb.leave_in_state (
+-- creat table infodb.leave_in_states
+CREATE TABLE IF NOT EXISTS infodb.leave_in_states (
   id integer NOT NULL AUTO_INCREMENT,
   leave_id integer,
   state_id integer,
@@ -328,8 +328,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_in_state (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- creat table infodb.leave_in_union_territory
-CREATE TABLE IF NOT EXISTS infodb.leave_in_union_territory (
+-- creat table infodb.leave_in_union_territories
+CREATE TABLE IF NOT EXISTS infodb.leave_in_union_territories (
   id integer NOT NULL AUTO_INCREMENT,
   leave_id integer,
   union_territory_id integer,
@@ -344,8 +344,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_in_union_territory (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- creat table infodb.leave_in_city
-CREATE TABLE IF NOT EXISTS infodb.leave_in_city (
+-- creat table infodb.leave_in_cities
+CREATE TABLE IF NOT EXISTS infodb.leave_in_cities (
   id integer NOT NULL AUTO_INCREMENT,
   leave_id integer,
   city_id integer,
@@ -360,8 +360,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_in_city (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- creat table infodb.leave_in_organization
-CREATE TABLE IF NOT EXISTS infodb.leave_in_organization (
+-- creat table infodb.leave_in_organizations
+CREATE TABLE IF NOT EXISTS infodb.leave_in_organizations (
   id integer NOT NULL AUTO_INCREMENT,
   leave_id integer,
   org_id integer,
@@ -377,8 +377,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_in_organization (
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- creat table infodb.leave_calendar_type
-CREATE TABLE IF NOT EXISTS infodb.leave_calendar_type (
+-- creat table infodb.leave_calendar_types
+CREATE TABLE IF NOT EXISTS infodb.leave_calendar_types (
   id integer NOT NULL AUTO_INCREMENT,
   name char(255) NOT NULL,
   description varchar(5000),
@@ -389,8 +389,8 @@ CREATE TABLE IF NOT EXISTS infodb.leave_calendar_type (
   PRIMARY KEY (id) 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- creat table infodb.leave_calendar
-CREATE TABLE IF NOT EXISTS infodb.leave_calendar (
+-- creat table infodb.leave_calendars
+CREATE TABLE IF NOT EXISTS infodb.leave_calendars (
   id integer NOT NULL AUTO_INCREMENT,
   alias char(255) DEFAULT '',
   leave_date date,

@@ -1,0 +1,16 @@
+Thoughts on email and SMS integration
+======================================
+
+Emails: emails are essential for any kind of communication such as
+	1. User foun some information on our product and he wants to send that link to self or to anyone
+	2. Registration confirmation
+	3. Any updates/notifications
+	4. Leave plan
+	5. Trip plans
+
+SMS: 
+	1. Can be used for validating user identity
+	2. Registration confirmation
+	3. For updates/notifications
+	4. SMS support for data update on the fly
+	5. 
