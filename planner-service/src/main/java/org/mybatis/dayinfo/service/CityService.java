@@ -18,7 +18,7 @@ public class CityService {
   }
   
   public List<GeoCity> getCities(){
-	  
+	  return null;
   }
 
 }
