@@ -3,81 +3,79 @@
 -- 	 DELETE GEOGRAPHY INFO TABLES
 -- ==========================================
 
--- drop table infodb.geo_continents
-DROP TABLE IF EXISTS infodb.geo_continents;
+-- drop table infodb.geo_continent
+DROP TABLE IF EXISTS infodb.geo_continent;
 
--- drop table infodb.geo_countries
-DROP TABLE IF EXISTS infodb.geo_countries;
+-- drop table infodb.geo_country
+DROP TABLE IF EXISTS infodb.geo_country;
 
--- drop table infodb.geo_states
-DROP TABLE IF EXISTS infodb.geo_states;
+-- drop table infodb.geo_state
+DROP TABLE IF EXISTS infodb.geo_state;
 
--- drop table infodb.geo_union_territories
-DROP TABLE IF EXISTS infodb.geo_union_territories;
+-- drop table infodb.geo_union_territory
+DROP TABLE IF EXISTS infodb.geo_union_territory;
 
--- drop table infodb.geo_districts
-DROP TABLE IF EXISTS infodb.geo_districts;
+-- drop table infodb.geo_district
+DROP TABLE IF EXISTS infodb.geo_district;
 
--- drop table infodb.geo_city_types
-DROP TABLE IF EXISTS infodb.geo_city_types;
+-- drop table infodb.geo_city_type
+DROP TABLE IF EXISTS infodb.geo_city_type;
 
--- drop table geo_cities
-DROP TABLE IF EXISTS infodb.geo_cities;
+-- drop table geo_city
+DROP TABLE IF EXISTS infodb.geo_city;
 
--- drop table infodb.geo_capital_types 
-DROP TABLE IF EXISTS infodb.geo_capital_types;
+-- drop table infodb.geo_capital_type 
+DROP TABLE IF EXISTS infodb.geo_capital_type;
 
--- drop table infodb.geo_country_capitals
-DROP TABLE IF EXISTS infodb.geo_country_capitals;
+-- drop table infodb.geo_country_capital
+DROP TABLE IF EXISTS infodb.geo_country_capital;
 
--- drop table infodb.geo_state_capitals
-DROP TABLE IF EXISTS infodb.geo_state_capitals;
+-- drop table infodb.geo_state_capital
+DROP TABLE IF EXISTS infodb.geo_state_capital;
 
--- drop table infodb.geo_district_capitals
-DROP TABLE IF EXISTS infodb.geo_district_capitals;
+-- drop table infodb.geo_district_capital
+DROP TABLE IF EXISTS infodb.geo_district_capital;
 
 -- ==========================================
 -- 	 DELETE ORGANIZATION INFO TABLES
 -- ==========================================
 
--- drop table infodb.org_types
-DROP TABLE IF EXISTS infodb.org_types;
+-- drop table infodb.organization_type
+DROP TABLE IF EXISTS infodb.org_type;
 
--- drop table infodb.org_organizations
-DROP TABLE IF EXISTS infodb.org_organizations;
+-- drop table infodb.organization
+DROP TABLE IF EXISTS infodb.org_organization;
 
--- drop table infodb.org_presence_in_cities
-DROP TABLE IF EXISTS infodb.org_presence_in_cities;
+-- drop table infodb.organization_in_city
+DROP TABLE IF EXISTS infodb.org_presence_in_city;
 
 -- ==========================================
 -- 	 DELETE LEAVE INFO TABLES
 -- ==========================================
 
--- drop table infodb.leave_types
-DROP TABLE IF EXISTS infodb.leave_types;
+-- drop table infodb.leave_type
+DROP TABLE IF EXISTS infodb.leave_type;
 
--- drop table infodb.leave_days
-DROP TABLE IF EXISTS infodb.leave_days;
+-- drop table infodb.leave_day
+DROP TABLE IF EXISTS infodb.leave_day;
 
--- drop table infodb.leave_in_countries
-DROP TABLE IF EXISTS infodb.leave_in_countries;
+-- drop table infodb.leave_in_country
+DROP TABLE IF EXISTS infodb.leave_in_country;
 
--- drop table infodb.leave_in_states
-DROP TABLE IF EXISTS infodb.leave_in_states;
+-- drop table infodb.leave_in_state
+DROP TABLE IF EXISTS infodb.leave_in_state;
 
--- drop table infodb.leave_in_union_territories
-DROP TABLE IF EXISTS infodb.leave_in_union_territories;
+-- drop table infodb.leave_in_union_territory
+DROP TABLE IF EXISTS infodb.leave_in_union_territory;
 
--- drop table infodb.leave_in_cities
-DROP TABLE IF EXISTS infodb.leave_in_cities;
+-- drop table infodb.leave_in_city
+DROP TABLE IF EXISTS infodb.leave_in_city;
 
--- drop table infodb.leave_calendar_types
-DROP TABLE IF EXISTS infodb.leave_calendar_types;
+-- drop table infodb.leave_calendar_type
+DROP TABLE IF EXISTS infodb.leave_calendar_type;
 
--- drop table infodb.leave_calendars
-DROP TABLE IF EXISTS infodb.leave_calendars;
-
-
+-- drop table infodb.leave_calendar
+DROP TABLE IF EXISTS infodb.leave_calendar;
 
 
 
@@ -85,10 +83,12 @@ DROP TABLE IF EXISTS infodb.leave_calendars;
 
 
 
-drop table `infodb`.`organizations`;
-drop table `infodb`.`organizations_in_cities`;
-drop table `infodb`.`organizations_types`;
-drop table `infodb`.`leave_in_organizations`;
+
+
+drop table `infodb`.`organization`;
+drop table `infodb`.`organization_in_city`;
+drop table `infodb`.`organization_type`;
+drop table `infodb`.`leave_in_organization`;
 
 
 
