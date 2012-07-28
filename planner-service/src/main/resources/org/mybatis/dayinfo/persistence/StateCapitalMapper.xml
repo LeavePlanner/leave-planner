@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.mybatis.dayinfo.persistence.GeoStateCapitalMapper" >
-  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.GeoStateCapital" >
+<mapper namespace="org.mybatis.dayinfo.persistence.StateCapitalMapper" >
+  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.StateCapital" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="state_id" property="stateId" jdbcType="INTEGER" />
     <result column="city_id" property="cityId" jdbcType="INTEGER" />
@@ -21,15 +21,15 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from geo_state_capital
+    from state_capital
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from geo_state_capital
+    delete from state_capital
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.GeoStateCapital" >
-    insert into geo_state_capital (id, state_id, city_id, 
+  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.StateCapital" >
+    insert into state_capital (id, state_id, city_id, 
       capital_type, capital_from_date, capital_to_date, 
       description, create_date, update_date, 
       deleted, active)
@@ -38,8 +38,8 @@
       #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.GeoStateCapital" >
-    insert into geo_state_capital
+  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.StateCapital" >
+    insert into state_capital
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -111,8 +111,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.GeoStateCapital" >
-    update geo_state_capital
+  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.StateCapital" >
+    update state_capital
     <set >
       <if test="stateId != null" >
         state_id = #{stateId,jdbcType=INTEGER},
@@ -147,8 +147,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.GeoStateCapital" >
-    update geo_state_capital
+  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.StateCapital" >
+    update state_capital
     set state_id = #{stateId,jdbcType=INTEGER},
       city_id = #{cityId,jdbcType=INTEGER},
       capital_type = #{capitalType,jdbcType=INTEGER},

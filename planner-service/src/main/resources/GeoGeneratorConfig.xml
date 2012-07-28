@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
 
-	<classPathEntry location="D:\git_source\atom-ui\webui\src\dashboard\target\webui\WEB-INF\lib\mysql-connector-java-5.1.6.jar"/>
+	<classPathEntry location="/home/manohar/.m2/repository/mysql/mysql-connector-java/5.1.9/mysql-connector-java-5.1.9.jar"/>
 	<context id="mysqlTest" targetRuntime="MyBatis3">
 
 		<commentGenerator>
@@ -39,52 +39,52 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="geo_city" enableSelectByExample="false"
+		<table tableName="city" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_city_type" enableSelectByExample="false"
+		<table tableName="city_type" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_continent" enableSelectByExample="false"
+		<table tableName="continent" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_country" enableSelectByExample="false"
+		<table tableName="country" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_country_capital" enableSelectByExample="false"
+		<table tableName="country_capital" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_district_capital" enableSelectByExample="false"
+		<table tableName="district_capital" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_district" enableSelectByExample="false"
+		<table tableName="district" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_state_capital" enableSelectByExample="false"
+		<table tableName="state_capital" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_state" enableSelectByExample="false"
+		<table tableName="state" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>
 
-		<table tableName="geo_union_territory" enableSelectByExample="false"
+		<table tableName="union_territory" enableSelectByExample="false"
 			enableDeleteByExample="false" enableCountByExample="false"
 			enableUpdateByExample="false" selectByExampleQueryId="false">
 		</table>

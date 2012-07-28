@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.mybatis.dayinfo.persistence.GeoCityMapper" >
-  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.GeoCity" >
+<mapper namespace="org.mybatis.dayinfo.persistence.CityMapper" >
+  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.City" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="CHAR" />
     <result column="district_id" property="districtId" jdbcType="INTEGER" />
@@ -18,8 +18,8 @@
     <result column="elevation" property="elevation" jdbcType="CHAR" />
     <result column="website" property="website" jdbcType="CHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
-    <!-- result column="create_date" property="createDate" jdbcType="TIMESTAMP" nullValue="null"/>
-    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" nullValue="null"/ -->
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
     <result column="deleted" property="deleted" jdbcType="BIT" />
     <result column="active" property="active" jdbcType="BIT" />
   </resultMap>
@@ -33,37 +33,30 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from geo_city
+    from city
     where id = #{id,jdbcType=INTEGER}
   </select>
   
-   <select id="getCityById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from geo_city
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  
-  <select id="getCityByname" resultMap="BaseResultMap" parameterType="string" >
-    select 
-    <include refid="Base_Column_List" />
-    from geo_city
+    from city
     where name = #{name,jdbcType=CHAR}
   </select>
-   
+  
   <select id="getCityList" resultMap="BaseResultMap" parameterType="string" >
     select 
     <include refid="Base_Column_List" />
-    from geo_city
+    from city
   </select>
-
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from geo_city
+    delete from city
     where id = #{id,jdbcType=INTEGER}
   </delete>
   
-  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.GeoCity" >
-    insert into geo_city (id, name, district_id, 
+  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.City" >
+    insert into city (id, name, district_id, 
       state_id, union_territory_id, city_type, 
       pupulation, coordinates, region, 
       mayor, commissioner, density, 
@@ -79,8 +72,8 @@
       #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
   </insert>
   
-  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.GeoCity" >
-    insert into geo_city
+  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.City" >
+    insert into city
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -206,9 +199,8 @@
       </if>
     </trim>
   </insert>
-  
-  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.GeoCity" >
-    update geo_city
+  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.City" >
+    update city
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=CHAR},
@@ -271,8 +263,8 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.GeoCity" >
-    update geo_city
+  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.City" >
+    update city
     set name = #{name,jdbcType=CHAR},
       district_id = #{districtId,jdbcType=INTEGER},
       state_id = #{stateId,jdbcType=INTEGER},

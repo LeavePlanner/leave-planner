@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.mybatis.dayinfo.persistence.GeoCountryMapper" >
-  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.GeoCountry" >
+<mapper namespace="org.mybatis.dayinfo.persistence.CountryMapper" >
+  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.Country" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="CHAR" />
     <result column="name" property="name" jdbcType="CHAR" />
@@ -23,23 +23,40 @@
     <result column="deleted" property="deleted" jdbcType="BIT" />
     <result column="active" property="active" jdbcType="BIT" />
   </resultMap>
+  
   <sql id="Base_Column_List" >
     id, code, name, continent_id, region, surface_area, independence_year, population, 
     life_expectancy, gnp, gnp_old, local_name, government_form, head_of_state, code2, 
     description, create_date, update_date, deleted, active
   </sql>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from geo_country
+    from country
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+   <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from country
+    where name = #{name,jdbcType=CHAR}
+  </select>
+  
+  <select id="getCountryList" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from country
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from geo_country
+    delete from country
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.GeoCountry" >
-    insert into geo_country (id, code, name, continent_id, 
+  
+  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.Country" >
+    insert into country (id, code, name, continent_id, 
       region, surface_area, independence_year, 
       population, life_expectancy, gnp, 
       gnp_old, local_name, government_form, 
@@ -54,8 +71,9 @@
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
       #{active,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.GeoCountry" >
-    insert into geo_country
+  
+  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.Country" >
+    insert into country
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -181,8 +199,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.GeoCountry" >
-    update geo_country
+  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.Country" >
+    update country
     <set >
       <if test="code != null" >
         code = #{code,jdbcType=CHAR},
@@ -244,8 +262,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.GeoCountry" >
-    update geo_country
+  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.Country" >
+    update country
     set code = #{code,jdbcType=CHAR},
       name = #{name,jdbcType=CHAR},
       continent_id = #{continentId,jdbcType=INTEGER},

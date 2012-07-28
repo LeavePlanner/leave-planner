@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.mybatis.dayinfo.persistence.GeoStateMapper" >
-  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.GeoState" >
+<mapper namespace="org.mybatis.dayinfo.persistence.UnionTerritoryMapper" >
+  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.UnionTerritory" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="CHAR" />
     <result column="code" property="code" jdbcType="CHAR" />
@@ -9,8 +9,8 @@
     <result column="area" property="area" jdbcType="INTEGER" />
     <result column="population" property="population" jdbcType="REAL" />
     <result column="language" property="language" jdbcType="CHAR" />
-    <result column="largest_city" property="largestCity" jdbcType="INTEGER" />
-    <result column="number_of_geo_districts" property="numberOfGeoDistricts" jdbcType="INTEGER" />
+    <result column="largest_city" property="largestCity" jdbcType="CHAR" />
+    <result column="number_of_districts" property="numberOfDistricts" jdbcType="INTEGER" />
     <result column="number_of_villages" property="numberOfVillages" jdbcType="INTEGER" />
     <result column="number_of_towns" property="numberOfTowns" jdbcType="INTEGER" />
     <result column="population_density" property="populationDensity" jdbcType="INTEGER" />
@@ -25,7 +25,7 @@
     <result column="active" property="active" jdbcType="BIT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, code, country_id, area, population, language, largest_city, number_of_geo_districts, 
+    id, name, code, country_id, area, population, language, largest_city, number_of_districts, 
     number_of_villages, number_of_towns, population_density, literacy_rate, percent_urban_population, 
     sex_ratio, sex_ratio_zero_to_six, description, create_date, update_date, deleted, 
     active
@@ -33,31 +33,31 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from geo_state
+    from union_territory
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from geo_state
+    delete from union_territory
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.GeoState" >
-    insert into geo_state (id, name, code, country_id, 
+  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.UnionTerritory" >
+    insert into union_territory (id, name, code, country_id, 
       area, population, language, 
-      largest_city, number_of_geo_districts, number_of_villages, 
+      largest_city, number_of_districts, number_of_villages, 
       number_of_towns, population_density, literacy_rate, 
       percent_urban_population, sex_ratio, sex_ratio_zero_to_six, 
       description, create_date, update_date, 
       deleted, active)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{code,jdbcType=CHAR}, #{countryId,jdbcType=INTEGER}, 
       #{area,jdbcType=INTEGER}, #{population,jdbcType=REAL}, #{language,jdbcType=CHAR}, 
-      #{largestCity,jdbcType=INTEGER}, #{numberOfGeoDistricts,jdbcType=INTEGER}, #{numberOfVillages,jdbcType=INTEGER}, 
+      #{largestCity,jdbcType=CHAR}, #{numberOfDistricts,jdbcType=INTEGER}, #{numberOfVillages,jdbcType=INTEGER}, 
       #{numberOfTowns,jdbcType=INTEGER}, #{populationDensity,jdbcType=INTEGER}, #{literacyRate,jdbcType=REAL}, 
       #{percentUrbanPopulation,jdbcType=REAL}, #{sexRatio,jdbcType=INTEGER}, #{sexRatioZeroToSix,jdbcType=INTEGER}, 
       #{description,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
       #{deleted,jdbcType=BIT}, #{active,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.GeoState" >
-    insert into geo_state
+  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.UnionTerritory" >
+    insert into union_territory
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -83,8 +83,8 @@
       <if test="largestCity != null" >
         largest_city,
       </if>
-      <if test="numberOfGeoDistricts != null" >
-        number_of_geo_districts,
+      <if test="numberOfDistricts != null" >
+        number_of_districts,
       </if>
       <if test="numberOfVillages != null" >
         number_of_villages,
@@ -146,10 +146,10 @@
         #{language,jdbcType=CHAR},
       </if>
       <if test="largestCity != null" >
-        #{largestCity,jdbcType=INTEGER},
+        #{largestCity,jdbcType=CHAR},
       </if>
-      <if test="numberOfGeoDistricts != null" >
-        #{numberOfGeoDistricts,jdbcType=INTEGER},
+      <if test="numberOfDistricts != null" >
+        #{numberOfDistricts,jdbcType=INTEGER},
       </if>
       <if test="numberOfVillages != null" >
         #{numberOfVillages,jdbcType=INTEGER},
@@ -189,8 +189,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.GeoState" >
-    update geo_state
+  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.UnionTerritory" >
+    update union_territory
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=CHAR},
@@ -211,10 +211,10 @@
         language = #{language,jdbcType=CHAR},
       </if>
       <if test="largestCity != null" >
-        largest_city = #{largestCity,jdbcType=INTEGER},
+        largest_city = #{largestCity,jdbcType=CHAR},
       </if>
-      <if test="numberOfGeoDistricts != null" >
-        number_of_geo_districts = #{numberOfGeoDistricts,jdbcType=INTEGER},
+      <if test="numberOfDistricts != null" >
+        number_of_districts = #{numberOfDistricts,jdbcType=INTEGER},
       </if>
       <if test="numberOfVillages != null" >
         number_of_villages = #{numberOfVillages,jdbcType=INTEGER},
@@ -255,16 +255,16 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.GeoState" >
-    update geo_state
+  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.UnionTerritory" >
+    update union_territory
     set name = #{name,jdbcType=CHAR},
       code = #{code,jdbcType=CHAR},
       country_id = #{countryId,jdbcType=INTEGER},
       area = #{area,jdbcType=INTEGER},
       population = #{population,jdbcType=REAL},
       language = #{language,jdbcType=CHAR},
-      largest_city = #{largestCity,jdbcType=INTEGER},
-      number_of_geo_districts = #{numberOfGeoDistricts,jdbcType=INTEGER},
+      largest_city = #{largestCity,jdbcType=CHAR},
+      number_of_districts = #{numberOfDistricts,jdbcType=INTEGER},
       number_of_villages = #{numberOfVillages,jdbcType=INTEGER},
       number_of_towns = #{numberOfTowns,jdbcType=INTEGER},
       population_density = #{populationDensity,jdbcType=INTEGER},

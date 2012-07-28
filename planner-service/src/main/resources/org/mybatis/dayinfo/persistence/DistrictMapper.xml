@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.mybatis.dayinfo.persistence.GeoDistrictMapper" >
-  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.GeoDistrict" >
+<mapper namespace="org.mybatis.dayinfo.persistence.DistrictMapper" >
+  <resultMap id="BaseResultMap" type="org.mybatis.dayinfo.domain.District" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="CHAR" />
     <result column="code" property="code" jdbcType="CHAR" />
@@ -24,15 +24,15 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from geo_district
+    from district
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from geo_district
+    delete from district
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.GeoDistrict" >
-    insert into geo_district (id, name, code, state_id, 
+  <insert id="insert" parameterType="org.mybatis.dayinfo.domain.District" >
+    insert into district (id, name, code, state_id, 
       headquarter, population, area, 
       density, official_website, description, 
       create_date, update_date, deleted, 
@@ -43,8 +43,8 @@
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
       #{active,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.GeoDistrict" >
-    insert into geo_district
+  <insert id="insertSelective" parameterType="org.mybatis.dayinfo.domain.District" >
+    insert into district
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -134,8 +134,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.GeoDistrict" >
-    update geo_district
+  <update id="updateByPrimaryKeySelective" parameterType="org.mybatis.dayinfo.domain.District" >
+    update district
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=CHAR},
@@ -179,8 +179,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.GeoDistrict" >
-    update geo_district
+  <update id="updateByPrimaryKey" parameterType="org.mybatis.dayinfo.domain.District" >
+    update district
     set name = #{name,jdbcType=CHAR},
       code = #{code,jdbcType=CHAR},
       state_id = #{stateId,jdbcType=INTEGER},
