@@ -40,7 +40,8 @@
  <!-- Declare a datasource that has pooling capabilities -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close" p:driverClass="com.mysql.jdbc.Driver"
-		p:jdbcUrl="jdbc:mysql://localhost:3306/infodb" p:user="lpdb" p:password="lpdb"
+		p:jdbcUrl="jdbc:mysql://localhost:3306/infodb?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull" 
+		p:user="lpdb" p:password="lpdb"
 		p:acquireIncrement="10" p:idleConnectionTestPeriod="60" p:maxPoolSize="100"
 		p:maxStatements="50" p:minPoolSize="10" />
 		
