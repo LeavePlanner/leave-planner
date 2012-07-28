@@ -20,9 +20,16 @@ public class StateService {
 	public State getStateByName(String stateName) {
 		return stateMapper.selectByName(stateName);
 	}
+	
+	public State getStateByCode(String stateCode) {
+		return stateMapper.selectByCode(stateCode);
+	}
 
 	public List<State> getAllStates() {
 		return stateMapper.getStateList();
 	}
 
+	public List<State> getAllStateByCountryId(int countryId) {
+		return stateMapper.getStateListByCountryId(countryId);
+	}
 }

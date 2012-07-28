@@ -43,4 +43,20 @@ public class StateRest {
 		State country = stateService.getStateByName(stateName);
 		return country;
 	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/code/{param}")
+	public State getCountryByCode(@PathParam("param") String stateCode) {
+		State country = stateService.getStateByCode(stateCode);
+		return country;
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/country/{param}")
+	public List<State> getStatesByCountryId(@PathParam("param") String countryId) {
+		List<State> allStates = stateService.getAllStateByCountryId(Integer.parseInt(countryId));
+		return allStates;
+	}
 }

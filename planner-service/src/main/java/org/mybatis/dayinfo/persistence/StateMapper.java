@@ -21,5 +21,11 @@ public interface StateMapper {
     
     State selectByName(String stateName);
     
+    State selectByCode(String stateCode);
+    
     List<State> getStateList();
+    
+    List<State> getStateListByCountryId(Integer countryId);
+    
+    List<State> getStateListByCountryName(String countryName);
 }
