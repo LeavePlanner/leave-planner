@@ -37,7 +37,10 @@
   </sql>
   
   <sql id="State_Column_List" >
-	  id, code, name, country_id, area, population    
+	id, name, code, country_id, area, population, language, largest_city, number_of_districts, 
+    number_of_villages, number_of_towns, population_density, literacy_rate, percent_urban_population, 
+    sex_ratio, sex_ratio_zero_to_six, description, create_date, update_date, deleted, 
+    active    
   </sql>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
