@@ -47,7 +47,7 @@ public class CountryRest {
 	
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	@Path("/states/{param}")
+	@Path("/{param}/states")
 	public List<State> getStateList(@PathParam("param") String countryId) {
 		List<State> stateList = countryService.getAllStates(Integer.parseInt(countryId));
 		return stateList;
