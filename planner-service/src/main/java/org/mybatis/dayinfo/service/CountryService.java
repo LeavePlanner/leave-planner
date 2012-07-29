@@ -21,13 +21,25 @@ public class CountryService {
 	public Country getCountryByName(String countryName) {
 		return countryMapper.selectByName(countryName);
 	}
+	
+	public Country getCountryByCode(String countryCode) {
+		return countryMapper.selectByCode(countryCode);
+	}
 
 	public List<Country> getAllCities() {
 		return countryMapper.getCountryList();
 	}
 	
-	public List<State> getAllStates(int countryId) {
-		return countryMapper.getStateList(countryId);
+	public List<State> getAllStatesByCountryId(int countryId) {
+		return countryMapper.getStateListByCountryId(countryId);
+	}
+	
+	public List<State> getAllStatesByCountryName(String countryName) {
+		return countryMapper.getStateListByCountryName(countryName);
+	}
+	
+	public List<State> getAllStatesByCountryCode(String countryCode) {
+		return countryMapper.getStateListByCountryCode(countryCode);
 	}
 
 }

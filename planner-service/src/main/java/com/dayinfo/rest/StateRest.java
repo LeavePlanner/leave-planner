@@ -8,6 +8,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.mybatis.dayinfo.domain.City;
+import org.mybatis.dayinfo.domain.District;
 import org.mybatis.dayinfo.domain.State;
 import org.mybatis.dayinfo.service.StateService;
 import org.springframework.stereotype.Component;
@@ -30,7 +32,7 @@ public class StateRest {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	@Path("/id/{param}")
+	@Path("/{param}")
 	public State getCountry(@PathParam("param") String stateId) {
 		State country = stateService.getState(Integer.parseInt(stateId));
 		return country;
@@ -54,9 +56,50 @@ public class StateRest {
 	
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	@Path("/country/{param}")
-	public List<State> getStatesByCountryId(@PathParam("param") String countryId) {
-		List<State> allStates = stateService.getAllStateByCountryId(Integer.parseInt(countryId));
-		return allStates;
+	@Path("/{param}/cities")
+	public List<City> getCitiesByStateId(@PathParam("param") String stateId) {
+		List<City> allCities = stateService.getAllCitiesByStateId(Integer.parseInt(stateId));
+		return allCities;
 	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/name/{param}/cities")
+	public List<City> getCitiesByStateName(@PathParam("param") String stateName) {
+		List<City> allCities = stateService.getAllCitiesByStateName(stateName);
+		return allCities;
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/code/{param}/cities")
+	public List<City> getCitiesByStateCode(@PathParam("param") String stateCode) {
+		List<City> allCities = stateService.getAllCitiesByStateCode(stateCode);
+		return allCities;
+	}
+
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/{param}/districts")
+	public List<District> getDistrictsByStateId(@PathParam("param") String stateId) {
+		List<District> allDistricts = stateService.getAllDistrictsByStateId(Integer.parseInt(stateId));
+		return allDistricts;
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/name/{param}/districts")
+	public List<District> getDistrictsByStateName(@PathParam("param") String stateName) {
+		List<District> allDistricts = stateService.getAllDistrictsByStateName(stateName);
+		return allDistricts;
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/code/{param}/districts")
+	public List<District> getDistrictsByStateCode(@PathParam("param") String stateCode) {
+		List<District> allDistricts = stateService.getAllDistrictsByStateCode(stateCode);
+		return allDistricts;
+	}
+	
 }

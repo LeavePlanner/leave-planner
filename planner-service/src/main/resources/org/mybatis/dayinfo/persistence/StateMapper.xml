@@ -24,11 +24,33 @@
     <result column="deleted" property="deleted" jdbcType="BIT" />
     <result column="active" property="active" jdbcType="BIT" />
   </resultMap>
+  
+  <resultMap id="districtResultMap" type="org.mybatis.dayinfo.domain.District">
+	 <id property="id" column="id" /> 
+	 <result property="stateId" column="state_id" />
+  </resultMap>
+  
+  <resultMap id="cityResultMap" type="org.mybatis.dayinfo.domain.City">
+	 <id property="id" column="id" /> 
+	 <result property="stateId" column="state_id" />
+  </resultMap>
+    
   <sql id="Base_Column_List" >
     id, name, code, country_id, area, population, language, largest_city, number_of_districts, 
     number_of_villages, number_of_towns, population_density, literacy_rate, percent_urban_population, 
     sex_ratio, sex_ratio_zero_to_six, description, create_date, update_date, deleted, 
     active
+  </sql>
+  
+  <sql id="District_Column_List" >
+    id, name, code, state_id, headquarter, population, area, density, official_website, 
+    description, create_date, update_date, deleted, active
+  </sql>
+  
+  <sql id="City_Column_List" >
+    id, name, district_id, state_id, union_territory_id, city_type, pupulation, coordinates, 
+    region, mayor, commissioner, density, area, elevation, website, description, create_date, 
+    update_date, deleted, active
   </sql>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -58,11 +80,46 @@
     from state
   </select>
   
-   <select id="getStateListByCountryId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   <select id="getCityListByStateId" resultMap="cityResultMap" parameterType="string" >
     select 
-    <include refid="Base_Column_List" />
-    from state
-    where country_id = #{country_id,jdbcType=INTEGER}
+    <include refid="City_Column_List" />
+    from city
+    where state_id = #{state_id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getCityListByStateName" resultMap="cityResultMap" parameterType="string" >
+    select 
+    <include refid="City_Column_List" />
+    from city
+    where state_id = (select s.id from state s where s.name =#{s.name,jdbcType=CHAR})
+  </select>
+  
+  <select id="getDistrictListByStateCode" resultMap="districtResultMap" parameterType="string" >
+    select 
+    <include refid="District_Column_List" />
+    from district
+    where state_id = (select s.id from state s where s.code =#{s.code,jdbcType=CHAR})
+  </select>
+      
+  <select id="getDistrictListByStateId" resultMap="districtResultMap" parameterType="string" >
+    select 
+    <include refid="District_Column_List" />
+    from district
+    where state_id = #{state_id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getDistrictListByStateName" resultMap="districtResultMap" parameterType="string" >
+    select 
+    <include refid="District_Column_List" />
+    from district
+    where state_id = (select s.id from state s where s.name =#{s.name,jdbcType=CHAR})
+  </select>
+  
+  <select id="getCityListByStateCode" resultMap="cityResultMap" parameterType="string" >
+    select 
+    <include refid="City_Column_List" />
+    from city
+    where state_id = (select s.id from state s where s.code =#{s.code,jdbcType=CHAR})
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

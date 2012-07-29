@@ -31,9 +31,17 @@ public class CountryRest {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	@Path("/id/{param}")
+	@Path("/{param}")
 	public Country getCountry(@PathParam("param") String countryId) {
 		Country country = countryService.getCountry(Integer.parseInt(countryId));
+		return country;
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/code/{param}")
+	public Country getCountryByCode(@PathParam("param") String countryCode) {
+		Country country = countryService.getCountryByCode(countryCode);
 		return country;
 	}
 	
@@ -49,7 +57,23 @@ public class CountryRest {
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Path("/{param}/states")
 	public List<State> getStateList(@PathParam("param") String countryId) {
-		List<State> stateList = countryService.getAllStates(Integer.parseInt(countryId));
+		List<State> stateList = countryService.getAllStatesByCountryId(Integer.parseInt(countryId));
+		return stateList;
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/name/{param}/states")
+	public List<State> getStateListByName(@PathParam("param") String countryName) {
+		List<State> stateList = countryService.getAllStatesByCountryName(countryName);
+		return stateList;
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/code/{param}/states")
+	public List<State> getStateListByCode(@PathParam("param") String countryCode) {
+		List<State> stateList = countryService.getAllStatesByCountryCode(countryCode);
 		return stateList;
 	}
 }

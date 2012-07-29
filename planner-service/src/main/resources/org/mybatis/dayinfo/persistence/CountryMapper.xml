@@ -57,17 +57,38 @@
     where name = #{name,jdbcType=CHAR}
   </select>
   
+  <select id="selectByCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from country
+    where code = #{code,jdbcType=CHAR}
+  </select>
+  
   <select id="getCountryList" resultMap="BaseResultMap" parameterType="string" >
     select 
     <include refid="Base_Column_List" />
     from country
   </select>
   
-  <select id="getStateList" resultMap="stateResultMap" parameterType="java.lang.Integer" >
+  <select id="getStateListByCountryId" resultMap="stateResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="State_Column_List" />
     from state 
     where country_id = #{country_id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getStateListByCountryName" resultMap="stateResultMap" parameterType="string" >
+    select 
+    <include refid="State_Column_List" />
+    from state 
+    where country_id = (select c.id from country c where c.name =#{c.name,jdbcType=CHAR})
+  </select>
+  
+  <select id="getStateListByCountryCode" resultMap="stateResultMap" parameterType="string" >
+    select 
+    <include refid="State_Column_List" />
+    from state 
+    where country_id = (select c.id from country c where c.code =#{c.code,jdbcType=CHAR})
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

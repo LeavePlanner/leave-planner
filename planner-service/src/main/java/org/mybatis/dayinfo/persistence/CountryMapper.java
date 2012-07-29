@@ -22,7 +22,13 @@ public interface CountryMapper {
     
     Country selectByName(String countryName);
     
+    Country selectByCode(String countryCode);
+    
     List<Country> getCountryList();
     
-    List<State> getStateList(Integer countryId);
+    List<State> getStateListByCountryId(Integer countryId);
+    
+    List<State> getStateListByCountryName(String countryName);
+    
+    List<State> getStateListByCountryCode(String countryCode);
 }

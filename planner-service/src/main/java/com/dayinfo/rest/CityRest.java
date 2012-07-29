@@ -32,7 +32,7 @@ public class CityRest {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	@Path("/id/{param}")
+	@Path("/{param}")
 	public City getCity(@PathParam("param") String cityId) {
 		City city = cityService.getCity(Integer.parseInt(cityId));
 		return city;
