@@ -3,6 +3,7 @@ package org.mybatis.dayinfo.service;
 import java.util.List;
 
 import org.mybatis.dayinfo.domain.Country;
+import org.mybatis.dayinfo.domain.State;
 import org.mybatis.dayinfo.persistence.CountryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,10 @@ public class CountryService {
 
 	public List<Country> getAllCities() {
 		return countryMapper.getCountryList();
+	}
+	
+	public List<State> getAllStates(int countryId) {
+		return countryMapper.getStateList(countryId);
 	}
 
 }

@@ -8,8 +8,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.mybatis.dayinfo.domain.City;
 import org.mybatis.dayinfo.domain.Country;
+import org.mybatis.dayinfo.domain.State;
 import org.mybatis.dayinfo.service.CountryService;
 import org.springframework.stereotype.Component;
 
@@ -43,5 +43,13 @@ public class CountryRest {
 	public Country getCountryByName(@PathParam("param") String countryName) {
 		Country country = countryService.getCountryByName(countryName);
 		return country;
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON })
+	@Path("/states/{param}")
+	public List<State> getStateList(@PathParam("param") String countryId) {
+		List<State> stateList = countryService.getAllStates(Integer.parseInt(countryId));
+		return stateList;
 	}
 }

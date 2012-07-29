@@ -3,6 +3,7 @@ package org.mybatis.dayinfo.persistence;
 import java.util.List;
 
 import org.mybatis.dayinfo.domain.Country;
+import org.mybatis.dayinfo.domain.State;
 
 public interface CountryMapper {
     int deleteByPrimaryKey(Integer id);
@@ -22,4 +23,6 @@ public interface CountryMapper {
     Country selectByName(String countryName);
     
     List<Country> getCountryList();
+    
+    List<State> getStateList(Integer countryId);
 }

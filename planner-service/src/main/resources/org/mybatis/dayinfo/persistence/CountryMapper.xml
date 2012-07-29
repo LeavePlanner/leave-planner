@@ -24,10 +24,20 @@
     <result column="active" property="active" jdbcType="BIT" />
   </resultMap>
   
+  <!-- simple result map -->
+  <resultMap id="stateResultMap" type="org.mybatis.dayinfo.domain.State">
+	 <id property="id" column="id" /> 
+	 <result property="countryId" column="country_id" />
+  </resultMap>
+  
   <sql id="Base_Column_List" >
     id, code, name, continent_id, region, surface_area, independence_year, population, 
     life_expectancy, gnp, gnp_old, local_name, government_form, head_of_state, code2, 
     description, create_date, update_date, deleted, active
+  </sql>
+  
+  <sql id="State_Column_List" >
+	  id, code, name, country_id, area, population    
   </sql>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -48,6 +58,13 @@
     select 
     <include refid="Base_Column_List" />
     from country
+  </select>
+  
+  <select id="getStateList" resultMap="stateResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="State_Column_List" />
+    from state 
+    where country_id = #{country_id,jdbcType=INTEGER}
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
