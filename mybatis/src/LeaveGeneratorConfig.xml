@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
 
-	<classPathEntry location="mysql-connector-java-5.1.6.jar" />
+	<classPathEntry location="/Users/manoharnegi/.m2/repository/mysql/mysql-connector-java/5.1.9/mysql-connector-java-5.1.9.jar" />
 
 	<context id="mysqlTest" targetRuntime="MyBatis3">
 
